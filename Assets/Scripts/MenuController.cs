@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MenuController : MonoBehaviour {
 
@@ -9,8 +10,13 @@ public class MenuController : MonoBehaviour {
 	public GameObject MainMenu;
 	public GameObject SettingsMenu;
 	public GameObject NameChooser;
-	public GameObject PauseButton;
 	public GameObject PauseMenu;
+	
+	public GameObject HUD;
+	public GameObject InfoBar;
+	public Text MoneyText;
+	
+	public GameObject Map;
 	
 	private GameObject CurrentMenu = null;//null means no menu is open
 	
@@ -25,7 +31,6 @@ public class MenuController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		SwitchToMenu(MainMenu);
-		Debug.Log(Globals.FormatMoney());
 	}
 	
 	// Update is called once per frame
@@ -33,13 +38,14 @@ public class MenuController : MonoBehaviour {
 		if(Input.GetKeyDown("p")){
 			TogglePause();
 		}
+		MoneyText.text = Globals.FormatMoney();
 	}
 	
 	//main menu
 	
 	private void SwitchToMenu(GameObject newmenu) {
 		FullPanel.SetActive(true);
-		PauseButton.SetActive(false);
+		HUD.SetActive(false);
 		if (CurrentMenu != null) {
 			CurrentMenu.SetActive(false);
 		}
@@ -52,7 +58,7 @@ public class MenuController : MonoBehaviour {
 			CurrentMenu.SetActive(false);
 		}
 		FullPanel.SetActive(false);
-		PauseButton.SetActive(true);
+		HUD.SetActive(true);
 	}
 	
 	public void StartGame() {
@@ -105,4 +111,15 @@ public class MenuController : MonoBehaviour {
 			Unpause();
 		}
 	}
+	
+	public void OpenMap() {
+		Map.SetActive(true);
+		Globals.gameState = GameState.Map;
+	}
+	
+	public void CloseMap() {
+		Map.SetActive(false);
+		Globals.gameState = GameState.World;
+	}
+	
 }
