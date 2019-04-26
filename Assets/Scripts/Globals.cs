@@ -7,7 +7,7 @@ public enum GameState {MainMenu, Paused, World, Map};
 //just for having static variables, don't instantiate this class
 public class Globals : MonoBehaviour {
 	
-	public static string playerName = "Mysterious Person";
+	public static string PlayerName = "Walter";
 	public static int money = 500; //this is in cents to avoid floating point errors
 	public static float volume = 0;
 	public static string CurrentCity = "Aidan test";

@@ -23,7 +23,7 @@ public class MenuController : MonoBehaviour {
 	public Slider VolumeSlider;
 	
 	public void ChooseName(string newname) {
-		Globals.playerName = newname;
+		Globals.PlayerName = newname;
 		CloseMenus();
 		Globals.gameState = GameState.World;
 	}
