@@ -13,7 +13,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Door
   - 
   - 
   - 
@@ -38,6 +38,12 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 3444543425
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Collidables
+    uniqueID: 2459704143
     locked: 0

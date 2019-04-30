@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CollisionDetector : MonoBehaviour
+public class NPCCollisionDetector : MonoBehaviour
 {
     public Rigidbody2D NPC; //Get the rigidbody of the NPCs 
 
