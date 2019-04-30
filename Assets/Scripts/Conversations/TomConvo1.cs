@@ -64,7 +64,7 @@ public class TomConvo1 : MonoBehaviour {
         TomText.fontSize = 25;
         TomText.text = "I heard that your family is going through some tough times. I could pay you to do a few jobs for me.";
         PlayerText1.text = "What do you want me to do?";
-        PlayerText2.text = "I don't need your help";
+        PlayerText2.text = "I don't need your help.";
         choice = 2;
         Choosing();
     }

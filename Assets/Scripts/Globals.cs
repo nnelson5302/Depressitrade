@@ -8,13 +8,13 @@ public enum GameState {MainMenu, Paused, World, Map};
 public class Globals : MonoBehaviour {
 	
 	public static string PlayerName = "Walter";
-	public static int money = 500; //this is in cents to avoid floating point errors
+	public static int Money = 500; //this is in cents to avoid floating point errors
 	public static float volume = 0;
 	public static string CurrentCity = "Aidan test";
 	public static GameState gameState = GameState.MainMenu;
 	
 	public static string FormatMoney() {
-		string str = money.ToString();
+		string str = Money.ToString();
 		if (str.Length >= 3){
 			str = str.Insert(str.Length-2,".");
 		} else if (str.Length == 2){

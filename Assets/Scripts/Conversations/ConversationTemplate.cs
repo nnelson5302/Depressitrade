@@ -33,17 +33,12 @@ public class ConversationTemplate : MonoBehaviour
         ContButton.onClick.AddListener(Continue);
     }
 
-    void loop()
-    {
-    }
-
     //Make different parts of the story in voids
     
     //Part 1 is the first thing the character says to you
-    //It's activated when you click on the character (for now at least)
+    //It's activated when you enter the conversation
     public void Part1()
     {
-        _CharacterName_Text.fontSize = 35; //Edit size as needed
         _CharacterName_Text.text = "_Whatever you want the character to say first_";
         PlayerText1.text = "_This text appears on the left button_";
         PlayerText2.text = "_This text appears on the right button_";
