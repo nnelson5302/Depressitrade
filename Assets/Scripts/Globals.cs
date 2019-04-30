@@ -7,14 +7,18 @@ public enum GameState {MainMenu, Paused, World, Map};
 //just for having static variables, don't instantiate this class
 public class Globals : MonoBehaviour {
 	
-	public static string playerName = "Mysterious Person";
-	public static int money = 500; //this is in cents to avoid floating point errors
-	public static float volume = 0;
+	public static string PlayerName = "Walter";
+	public static int Money = 500; //this is in cents to avoid floating point errors
+	public static float Volume = 0; //our game has no sound lol
 	public static string CurrentCity = "Aidan test";
 	public static GameState gameState = GameState.MainMenu;
 	
+	//Resources
+	public static int wood = 5;
+	//I assume there will be more resources to add once we have progressed the story more...
+	
 	public static string FormatMoney() {
-		string str = money.ToString();
+		string str = Money.ToString();
 		if (str.Length >= 3){
 			str = str.Insert(str.Length-2,".");
 		} else if (str.Length == 2){
