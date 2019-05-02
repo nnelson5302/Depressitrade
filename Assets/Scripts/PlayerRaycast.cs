@@ -4,33 +4,46 @@ using UnityEngine.Tilemaps;
 
 public class PlayerRaycast : MonoBehaviour
 {
-    RaycastHit2D rayD;
-    RaycastHit2D rayU;
-    RaycastHit2D rayL;
-    RaycastHit2D rayR;
-
-    float d;
-    float u;
-    float l;
-    float r;
-
+    RaycastHit2D rayD, rayU, rayL, rayR;
+    float d, u, l, r;
     Vector2 origin;
+    Vector2 nullPoint = new Vector2(0, 0);
+
     public LayerMask layerMask;
-    
+
+    void Start()
+    {
+        origin = transform.position;
+
+        d = rayD.distance;
+        u = rayU.distance;
+        l = rayL.distance;
+        r = rayR.distance;
+    }
+
     void Update()
     {
         origin = transform.position;
 
-        rayD = Physics2D.Raycast(origin, Vector2.down, 10f, layerMask);
-        rayU = Physics2D.Raycast(origin, Vector2.up, 10f, layerMask);
-        rayL = Physics2D.Raycast(origin, Vector2.left, 10f, layerMask);
-        rayR = Physics2D.Raycast(origin, Vector2.right, 10f, layerMask);
+        rayD = Physics2D.Raycast(origin + new Vector2(0, -.5f), Vector2.down, 5f, layerMask);
+        rayU = Physics2D.Raycast(origin + new Vector2(0, .5f), -Vector2.down, 5f, layerMask);
+        rayL = Physics2D.Raycast(origin + new Vector2(-.5f, 0), Vector2.left, 5f, layerMask);
+        rayR = Physics2D.Raycast(origin + new Vector2(.5f, 0), -Vector2.left, 5f, layerMask);
 
         d = rayD.distance;
         u = rayU.distance;
         l = rayL.distance;
         r = rayR.distance;
 
-        Debug.Log(d); //Doesn't work :(
+        Debug.DrawRay(origin + new Vector2(0, -.5f), Vector2.down * 5f, Color.red);
+        Debug.DrawRay(origin + new Vector2(0,.5f), -Vector2.down * 5f, Color.cyan);
+        Debug.DrawRay(origin + new Vector2(-.5f, 0), Vector2.left * 5f, Color.cyan);
+        Debug.DrawRay(origin + new Vector2(.5f, 0), -Vector2.left * 5f, Color.cyan);
+
+        if (rayD.point == nullPoint)
+            Debug.Log("Null");
+        else
+            Debug.Log(d);
+
     }
 }
