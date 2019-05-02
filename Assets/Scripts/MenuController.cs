@@ -18,6 +18,7 @@ public class MenuController : MonoBehaviour {
 	public GameObject InfoBar;
 	public Text CityNameObj;
 	public Text MoneyText;
+	public Text WeekText;
 	
 	public GameObject Map;
 	public GameObject Inventory;
@@ -44,6 +45,7 @@ public class MenuController : MonoBehaviour {
 			TogglePause();
 		}
 		MoneyText.text = Globals.FormatMoney();
+		WeekText.text = "Week " + Globals.Week;
 		UpdateInventoryText();
 		CityNameObj.text = Globals.CurrentCity;
 	}

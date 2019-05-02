@@ -12,6 +12,7 @@ public class Globals : MonoBehaviour {
 	public static float Volume = 0; //our game has no sound lol
 	public static string CurrentCity = "Aidan test";
 	public static GameState gameState = GameState.MainMenu;
+	public static int Week = 1;
 	
 	//Resources
 	public static int wood = 5;
