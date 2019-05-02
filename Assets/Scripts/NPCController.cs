@@ -8,8 +8,8 @@ public class NPCController : MonoBehaviour
     float speed = 0.025f; //Speed of NPCs
     Vector3 initPos = new Vector3(0f, 0f, 0f); //NPCs inital spawning position
     Transform[] NPCs = new Transform[15]; //List of the transforms of NPCs so we can change position
-    int[] npcDirX = new int[15]; //X direction NPC moves in
-    int[] npcDirY = new int[15]; //Y direction NPC moves in
+    float[] npcDirX = new float[15]; //X direction NPC moves in
+    float[] npcDirY = new float[15]; //Y direction NPC moves in
     Vector3[] npcMov = new Vector3[15]; //Vector used to add position to NPC
     bool[] mov = new bool[15]; //Stores whether or not each NPC is moving
     public Transform NPCParent;
@@ -42,8 +42,10 @@ public class NPCController : MonoBehaviour
 
                 if (mov[i] == true)
                 {
-                    npcDirX[i] = Random.Range(-1, 1);
-                    npcDirY[i] = Random.Range(-1, 1); //Set direction to not zero, moves in a random direction
+                    npcDirX[i] = Random.Range(-1f, 1f);
+                    npcDirY[i] = Random.Range(-1f, 1f); //Set direction to not zero, moves in a random direction
+                    Debug.Log(npcDirX[i]);
+                    Debug.Log(npcDirY[i]);
                 }
 
                 else
