@@ -178,12 +178,20 @@ public class FirstInteractionWithDick : MonoBehaviour
     void Part6a()
     {
         DickText.text = "Alright, it's a done deal! $2.75 it is!";
+		cont = 4;
+		Globals.Money -= 275;
+		Globals.wood += 20;
+		Reading();
     }
 
     void Part6b()
     {
         DickSize(30);
         DickText.text = "Thank god you're at least somewhat agreeable. Well here's your wood. Good day!";
+		cont = 4;
+		Globals.Money -= 275;
+		Globals.wood += 20;
+		Reading();
     }
 
     void Part6c()

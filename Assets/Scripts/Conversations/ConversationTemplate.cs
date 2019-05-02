@@ -145,4 +145,6 @@ public class ConversationTemplate : MonoBehaviour
         Debug.Log("NotReadingVoid");
         ContinueButton.SetActive(false);
     }
+	
+	
 }

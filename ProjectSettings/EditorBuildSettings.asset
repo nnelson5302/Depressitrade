@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Tom conversation.unity
     guid: c0d26f288963ef24a9d72a75cbb72acc
+  - enabled: 1
+    path: Assets/Scenes/Dick Conversation.unity
+    guid: 12e90211799c2474d87e6dd28dbcadb4
   m_configObjects: {}
