@@ -85,9 +85,9 @@ public class TomConvo1 : MonoBehaviour {
 
     void Part4()
     {
-        TomText.fontSize = 26;
-        TomText.text = "I'm running low on wood. If you can get me 20 planks of wood. I'll pay you $3.50.";
-        PlayerText1.text = "Only $3.50!?!";
+        TomText.fontSize = 26;  
+        TomText.text = "I'm running low on wood. If you can get me 20 planks of wood. I'll pay you $5.00.";
+        PlayerText1.text = "Only $5.00!?!";
         PlayerText2.text = "Thanks, Tim!";
         choice = 3;
         Choosing();

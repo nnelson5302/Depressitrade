@@ -16,15 +16,12 @@ public class ConversationTemplate : MonoBehaviour
     public Button Button1;
     public Button Button2;
     public Button ContButton;
-    int Option;
     int choice;
     int cont;
     string playerName = "Jackie";
 
     void Start()
     {
-        Debug.Log("Start");
-        Option = 0;
         Choice1.SetActive(false);
         Choice2.SetActive(false);
         ContinueButton.SetActive(false);
@@ -99,7 +96,6 @@ public class ConversationTemplate : MonoBehaviour
     public void Continue()
     {
         NotReading();
-        Debug.Log("ContinueVoid");
         if (cont == 1)
         {
             //Send it to whatever void you want it to go to when they hit continue on the first reading part
@@ -116,7 +112,6 @@ public class ConversationTemplate : MonoBehaviour
     //It makes the choice button appears
     void Choosing()
     {
-        Debug.Log("ChoosingVoid");
         Choice1.SetActive(true);
         Choice2.SetActive(true);
     }
@@ -125,7 +120,6 @@ public class ConversationTemplate : MonoBehaviour
     //It makes the continue button appear
     void Reading()
     {
-        Debug.Log("ReadingVoid");
         ContinueButton.SetActive(true);
     }
 
@@ -133,7 +127,6 @@ public class ConversationTemplate : MonoBehaviour
     //It makes the choice buttons inactive
     void NotChoosing()
     {
-        Debug.Log("NotChoosingVoid");
         Choice1.SetActive(false);
         Choice2.SetActive(false);
     }
@@ -142,7 +135,6 @@ public class ConversationTemplate : MonoBehaviour
     //It makes the continue button inactive
     void NotReading()
     {
-        Debug.Log("NotReadingVoid");
         ContinueButton.SetActive(false);
     }
 }
