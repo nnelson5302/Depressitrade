@@ -1,77 +1,79 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class GiveTomWood : MonoBehaviour
+public class ConversationBase
 {
-    public Text TomText;
+    public Text NPCText;
     public Text PlayerText1;
     public Text PlayerText2;
-    public Text MoneyText;
     public GameObject Choice1;
     public GameObject Choice2;
     public GameObject ContinueButton;
-    public GameObject MoneyPanel;
-    public Button Button1;
-    public Button Button2;
-    public Button ContButton;
-	
+    Button Button1;
+    Button Button2;
+    Button ContButton;
     int choice;
     int cont;
     string playerName = Globals.PlayerName;
-
-    void Start()
+	
+	//plz forgive me for this function signature
+    public ConversationBase(
+		Text _NPCText,
+		Text _PlayerText1,
+		Text _PlayerText2,
+		GameObject _Choice1,
+		GameObject _Choice2,
+		GameObject _ContinueButton
+	)
     {
-        Debug.Log("Start");
+		NPCText = _NPCText;
+		PlayerText1 = _PlayerText1;
+		PlayerText2 = _PlayerText2;
+		Choice1 = _Choice1;
+		Choice2 = _Choice2;
+		ContinueButton = _ContinueButton;
+		Button1 = Choice1.GetComponent<Button>();
+		Button2 = Choice2.GetComponent<Button>();
+		ContButton = ContinueButton.GetComponent<Button>();
+		
         Choice1.SetActive(false);
         Choice2.SetActive(false);
         ContinueButton.SetActive(false);
-        MoneyPanel.SetActive(false);
         Button1.onClick.AddListener(ChooseOption1);
         Button2.onClick.AddListener(ChooseOption2);
         ContButton.onClick.AddListener(Continue);
-        Part1(); //Change this later probably but it will work for now
     }
 
     //Make different parts of the story in voids
-
+    
     //Part 1 is the first thing the character says to you
     //It's activated when you enter the conversation
     public void Part1()
     {
-        TomText.text = "Did you get me some wood?";
-        PlayerText1.text = "Yes, of course.";
-        PlayerText2.text = "No.";
+        _CharacterName_Text.text = "_Whatever you want the character to say first_";
+        PlayerText1.text = "_This text appears on the left button_";
+        PlayerText2.text = "_This text appears on the right button_";
         choice = 1;
         Choosing();
     }
 
     void Part2a()
     {
-        TomText.text = "Great! I owe you $3.50 then! Thank you! I'll inform you if I require your assistance in the future.";
+        _CharacterName_Text.text = "_This is what I say if you click the left button_";
         cont = 1;
         Reading();
     }
 
     void Part2b()
     {
-        TomText.text = "You're useless. This is why you were put up for adoption. Get out of Libertyville and don't ever come back!";
-        cont = 2;
-        Reading();
-    }
-
-    void Part3()
-    {
-        MoneyPanel.SetActive(true);
-        MoneyText.text = "Tom gave you $3.50!";
-        Globals.Money += 350;
-        cont = 3;
+        _CharacterName_Text.text = "_This is what I say if you click the right button_";
+        cont = 1;
         Reading();
     }
 
     //Make more parts as needed
+    //I like to do parts where the conversation path is divided as a and b that way every conversation goes 1, 2, 3, etc. but you get different parts
 
     //This is the function that the left button calls
     public void ChooseOption1()
@@ -79,8 +81,14 @@ public class GiveTomWood : MonoBehaviour
         NotChoosing();
         if (choice == 1)
         {
-            Part2a();
+            //Send it to whatever void you want it to go to if you choose option 1 on the first choice
+            //ex:  Part2a();
         }
+        else if (choice == 2)
+        {
+            //Send it to whatever void you want it to go to if you choose option 1 on the second choice
+        }
+        //Make more if statements as needed
     }
 
     //This is the function that the right button calls
@@ -89,8 +97,14 @@ public class GiveTomWood : MonoBehaviour
         NotChoosing();
         if (choice == 1)
         {
-            Part2b();
+            //Send it to whatever void you want it to go to if you choose option 2 on the first choice
+            //ex:  Part2b();
         }
+        if (choice == 2)
+        {
+            //Send it to whatever void you want it to go to if you choose option 2 on the second choice
+        }
+        //Make more if statements as needed
     }
 
     //This is the function that the continue button calls
@@ -100,16 +114,14 @@ public class GiveTomWood : MonoBehaviour
         Debug.Log("ContinueVoid");
         if (cont == 1)
         {
-            Part3();
+            //Send it to whatever void you want it to go to when they hit continue on the first reading part
+            //ex:  Part3();
         }
         else if (cont == 2)
         {
-            //Go to game over screen once it's created
+           //Send it to whatever void you want it to go to when they hit continue on the first reading part
         }
-        else if (cont == 3)
-        {
-            SceneManager.LoadScene("2D libertyville");
-        }
+        //Make more if statements as needed
     }
 
     //Call this function when the player must choose something to say
@@ -145,4 +157,10 @@ public class GiveTomWood : MonoBehaviour
         Debug.Log("NotReadingVoid");
         ContinueButton.SetActive(false);
     }
+	
+	//Call to return to the world after the conversation
+	void EndConversation()
+	{
+		SceneManager.LoadScene(Globals.CurrentCity);
+	}
 }
