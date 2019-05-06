@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/2D libertyville.unity
+    path: Assets/Scenes/Libertyville.unity
     guid: 601f337f709b5c24286257de5372f64b
   - enabled: 1
     path: Assets/Scenes/Tom conversation.unity
@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dick Conversation.unity
     guid: 12e90211799c2474d87e6dd28dbcadb4
+  - enabled: 1
+    path: Assets/Scenes/Potato Hill.unity
+    guid: c8c7e71ca554a2f439e3acea45ad16e7
   m_configObjects: {}

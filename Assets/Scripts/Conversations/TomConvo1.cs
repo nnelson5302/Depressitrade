@@ -8,6 +8,7 @@ public class TomConvo1 : MonoBehaviour {
     public Text TomText;
     public Text PlayerText1;
     public Text PlayerText2;
+	public Text ContinueText;
     public GameObject Choice1;
     public GameObject Choice2;
     public GameObject ContinueButton;
@@ -18,21 +19,17 @@ public class TomConvo1 : MonoBehaviour {
     int choice;
     int cont;
     bool rememberedName;
-    string playerName = "Mildred";
+    string playerName = Globals.PlayerName;
 
     void Start() {
         Option = 0;
         Choice1.SetActive(false);
         Choice2.SetActive(false);
         ContinueButton.SetActive(false);
-        Part1();
         Button1.onClick.AddListener(ChooseOption1);
         Button2.onClick.AddListener(ChooseOption2);
         ContButton.onClick.AddListener(Continue);
-    }
-
-    void loop()
-    {
+		Part1();
     }
 
     public void Part1()
@@ -86,8 +83,8 @@ public class TomConvo1 : MonoBehaviour {
     void Part4()
     {
         TomText.fontSize = 26;
-        TomText.text = "I'm running low on wood. If you can get me 20 planks of wood. I'll pay you $3.50.";
-        PlayerText1.text = "Only $3.50!?!";
+        TomText.text = "I'm running low on wood. If you can get me 20 planks of wood. I'll pay you $5.00.";
+        PlayerText1.text = "Only $5.00!?!";
         PlayerText2.text = "Thanks, Tim!";
         choice = 3;
         Choosing();
@@ -97,8 +94,8 @@ public class TomConvo1 : MonoBehaviour {
     {
         TomText.text = "Times are hard. Take what you can get, Ninnyhammer!";
         cont = 3;
+		ContinueText.text = "Where can i get wood?";
         Reading();
-
 
     }
 
@@ -120,8 +117,17 @@ public class TomConvo1 : MonoBehaviour {
             }
         }
         cont = 3;
+		//ContinueText.text = "Where can I get wood?";
         Reading();
     }
+	
+	void Part6()
+	{	
+		TomText.text = "You can buy some from my friend Dick, in Potato Hill.";
+		ContinueText.text = "Continue";
+		cont = 4;
+		Reading();
+	}
     
     public void ChooseOption1()
     {
@@ -171,8 +177,13 @@ public class TomConvo1 : MonoBehaviour {
         }
         else if(cont == 3)
         {
-            SceneManager.LoadScene("2D libertyville");
+            //Part6();
+			EndConversation();
         }
+		else if(cont == 4)
+		{	
+			EndConversation();
+		}
     }
     
     void Choosing ()
@@ -196,4 +207,9 @@ public class TomConvo1 : MonoBehaviour {
     {
         ContinueButton.SetActive(false);
     }
+	
+	void EndConversation()
+	{
+		SceneManager.LoadScene(Globals.CurrentCity);
+	}
 }

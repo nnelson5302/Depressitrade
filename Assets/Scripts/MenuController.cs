@@ -36,7 +36,11 @@ public class MenuController : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		SwitchToMenu(MainMenu);
+		if (Globals.GameStarted){
+			CloseMenus();
+		} else {
+			SwitchToMenu(MainMenu);
+		}
 	}
 	
 	// Update is called once per frame
@@ -77,6 +81,7 @@ public class MenuController : MonoBehaviour {
 	
 	public void StartGame() {
 		SwitchToMenu(NameChooser);
+		Globals.GameStarted = true;
 	}
 	
 	public void OpenSettings() {

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class FirstInteractionWithDick : MonoBehaviour
 {
@@ -29,6 +31,7 @@ public class FirstInteractionWithDick : MonoBehaviour
         Button1.onClick.AddListener(ChooseOption1);
         Button2.onClick.AddListener(ChooseOption2);
         ContButton.onClick.AddListener(Continue);
+		Part1();
     }
 
     void loop()
@@ -81,7 +84,7 @@ public class FirstInteractionWithDick : MonoBehaviour
     void Part4a()
     {
         DickText.text = "Great! That will be three dollars.";
-        PlayerText1.text = "Three dollars? Please, sir. Tom's only paying me $3.50!";
+        PlayerText1.text = "Three dollars? Please, sir. Tom's only paying me $5.00!";
         PlayerText2.text = "No way! You won't be able to scam me you Twit!!";
         choice = 4;
         Choosing();
@@ -91,7 +94,7 @@ public class FirstInteractionWithDick : MonoBehaviour
     {
         DickSize(35);
         DickText.text = "Er... okay then. That will be three dollars.";
-        PlayerText1.text = "Three dollars? Please, sir. Tom's only paying me $3.50!";
+        PlayerText1.text = "Three dollars? Please, sir. Tom's only paying me $5.00!";
         PlayerText2.text = "No way! You won't be able to scam me you Twit!!";
         choice = 4;
         Choosing();
@@ -189,7 +192,7 @@ public class FirstInteractionWithDick : MonoBehaviour
         DickSize(30);
         DickText.text = "Thank god you're at least somewhat agreeable. Well here's your wood. Good day!";
 		cont = 4;
-		Globals.Money -= 275;
+		Globals.Money -= 310;
 		Globals.wood += 20;
 		Reading();
     }
@@ -199,11 +202,19 @@ public class FirstInteractionWithDick : MonoBehaviour
         DickSize(25);
         DickText.color = new Color(0, 0, 0);
         DickText.text = "The devs got involved? Well at least they talked some sense into ya. Take your wood and leave.";
+		cont = 4;
+		Globals.Money -= 310;
+		Globals.wood += 20;
+		Reading();
     }
 
     void Part6d()
     {
         DickText.text = "I'm only so generous and $3.00 is a fair price anyway. Good luck!";
+		cont = 4;
+		Globals.Money -= 300;
+		Globals.wood += 20;
+		Reading();
     }
 
     public void ChooseOption1()
@@ -311,6 +322,10 @@ public class FirstInteractionWithDick : MonoBehaviour
         {
             Part5h();
         }
+		else if (cont == 4)
+		{
+			EndConversation();
+		}
     }
 
     void Choosing()
@@ -334,6 +349,11 @@ public class FirstInteractionWithDick : MonoBehaviour
     {
         ContinueButton.SetActive(false);
     }
+	
+	void EndConversation()
+	{
+		SceneManager.LoadScene(Globals.CurrentCity);
+	}
 
     void DickSize(int girth)
     {

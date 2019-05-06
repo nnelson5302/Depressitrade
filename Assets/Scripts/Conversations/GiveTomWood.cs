@@ -21,7 +21,7 @@ public class GiveTomWood : MonoBehaviour
     int Option;
     int choice;
     int cont;
-    string playerName = "Jackie";
+    string playerName = Globals.PlayerName;
 
     void Start()
     {

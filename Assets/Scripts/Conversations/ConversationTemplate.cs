@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 //Anything with underscores on either side of it should be replaced with something specific to the conversation
@@ -146,5 +147,10 @@ public class ConversationTemplate : MonoBehaviour
         ContinueButton.SetActive(false);
     }
 	
+	//Call to return to the world after the conversation
+	void EndConversation()
+	{
+		SceneManager.LoadScene(Globals.CurrentCity);
+	}
 	
 }
