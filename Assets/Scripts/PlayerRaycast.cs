@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.Tilemaps;
 using UnityEngine.UI;
 
 public class PlayerRaycast : MonoBehaviour
@@ -12,6 +11,7 @@ public class PlayerRaycast : MonoBehaviour
     Vector2 hitPoint;
     const float rayDist = 0.9f;
     const float offset = 0.25f;
+    Scene curScene;
 
     public LayerMask layerMask;
     public GameObject doorPanel;
@@ -19,12 +19,14 @@ public class PlayerRaycast : MonoBehaviour
 
     void Start()
     {
+        curScene = SceneManager.GetActiveScene();
         origin = transform.position;
 
         d = rayD.distance;
         u = rayU.distance;
         l = rayL.distance;
         r = rayR.distance;
+        DontDestroyOnLoad(this);
     }
 
     void Update()
@@ -102,22 +104,25 @@ public class PlayerRaycast : MonoBehaviour
         hitPoint.x = Mathf.FloorToInt(hitPoint.x);
         hitPoint.y = Mathf.FloorToInt(hitPoint.y);
 
-        Debug.Log(hitPoint);
+        //Debug.Log(hitPoint);
     }
 
     void doorEntry()
     {
+        Debug.Log(curScene.name);
         if (Input.GetKey(KeyCode.Q) == true && doorPanel.activeInHierarchy) {
-            Debug.Log("oof");
-            if (hitPoint.x == 46 && hitPoint.y == -30 /* && SceneManager.GetActiveScene().name == "2D Liberyville"*/)
+          //  Debug.Log("oof");
+            if (hitPoint.x == 46 && hitPoint.y == -30 && curScene.name == "2D libertyville")
             {
                 SceneManager.LoadScene("Tom Inside");
-                Debug.Log("True");
+              //  Debug.Log("True");
             }
-            if (hitPoint.x == 44 && hitPoint.y == -28 /* && SceneManager.GetActiveScene().name == "2D Liberyville"*/)
+
+            if (hitPoint.x == 44 && hitPoint.y == -28 && curScene.name == "Tom Inside")
             {
                 SceneManager.LoadScene("2D Libertyville");
-                Debug.Log("True");
+                transform.position = new Vector2(46.5f, -29.5f);
+               // Debug.Log("True");
             }
         }
     }
