@@ -12,6 +12,7 @@ public static class Globals {
 	public static string CurrentCity = "Libertyville";
 	public static GameState gameState = GameState.MainMenu;
 	public static int Week = 1;
+	public static string ConversationPerson = "Example"; //set before changing to conversation scene
 	
 	public static bool GameStarted = false;//set to true after player goes through the main menu
 	
@@ -24,6 +25,18 @@ public static class Globals {
 	
 	public static string FormatMoney() {
 		string str = Money.ToString();
+		if (str.Length >= 3){
+			str = str.Insert(str.Length-2,".");
+		} else if (str.Length == 2){
+			str = "0." + str;
+		} else if (str.Length == 1){
+			str = "0.0" + str;
+		}
+		return "$"+str;
+	}
+
+	public static string FormatMoney(int amount) {
+		string str = amount.ToString();
 		if (str.Length >= 3){
 			str = str.Insert(str.Length-2,".");
 		} else if (str.Length == 2){

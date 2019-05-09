@@ -1,8 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class ConversationBase
+public delegate void ConversationPart();
+
+public abstract class ConversationBase
 {
     public Text NPCText;
     public Text PlayerText1;
@@ -10,12 +14,20 @@ public class ConversationBase
     public GameObject Choice1;
     public GameObject Choice2;
     public GameObject ContinueButton;
-    Button Button1;
-    Button Button2;
-    Button ContButton;
-    int choice;
-    int cont;
+    public Button Button1;
+    public Button Button2;
+    public Button ContButton;
+    public GameObject MoneyPanel;
+    public Text MoneyText;
+
+    public int choice;
+    public int cont;
+    ConversationPart ContinueFunc;
+    ConversationPart Choice1Func;
+    ConversationPart Choice2Func;
+
     string playerName = Globals.PlayerName;
+    public string NPCName;
 	
 	//plz forgive me for this function signature
     public ConversationBase(
@@ -24,7 +36,9 @@ public class ConversationBase
 		Text _PlayerText2,
 		GameObject _Choice1,
 		GameObject _Choice2,
-		GameObject _ContinueButton
+		GameObject _ContinueButton,
+        GameObject _MoneyPanel,
+        Text _MoneyText
 	)
     {
 		NPCText = _NPCText;
@@ -36,131 +50,122 @@ public class ConversationBase
 		Button1 = Choice1.GetComponent<Button>();
 		Button2 = Choice2.GetComponent<Button>();
 		ContButton = ContinueButton.GetComponent<Button>();
+        MoneyPanel = _MoneyPanel;
+        MoneyText = _MoneyText;
 		
         Choice1.SetActive(false);
         Choice2.SetActive(false);
         ContinueButton.SetActive(false);
-        Button1.onClick.AddListener(ChooseOption1);
-        Button2.onClick.AddListener(ChooseOption2);
-        ContButton.onClick.AddListener(Continue);
+        Button1.onClick.AddListener(OnClickOption1);
+        Button2.onClick.AddListener(OnClickOption2);
+        ContButton.onClick.AddListener(OnClickContinue);
     }
 
-    //Make different parts of the story in voids
-    
-    //Part 1 is the first thing the character says to you
-    //It's activated when you enter the conversation
-    public void Part1()
+    //Called at start of conversation, must be implemented
+    public abstract void Part1();
+
+    public void OnClickOption1()
     {
-        _CharacterName_Text.text = "_Whatever you want the character to say first_";
-        PlayerText1.text = "_This text appears on the left button_";
-        PlayerText2.text = "_This text appears on the right button_";
-        choice = 1;
-        Choosing();
+        if (Choice1Func != null){
+            ConversationPart tempFunc = Choice1Func;
+            Choice1Func = null;
+            tempFunc();
+        } else {
+            //for old system
+            ChooseOption1();
+        }
     }
 
-    void Part2a()
+    public void OnClickOption2()
     {
-        _CharacterName_Text.text = "_This is what I say if you click the left button_";
-        cont = 1;
-        Reading();
+        if (Choice2Func != null){
+            ConversationPart tempFunc = Choice2Func;
+            Choice2Func = null;
+            tempFunc();
+        } else {
+            //for old system
+            ChooseOption2();
+        }
     }
 
-    void Part2b()
+    public void OnClickContinue()
     {
-        _CharacterName_Text.text = "_This is what I say if you click the right button_";
-        cont = 1;
-        Reading();
+        if (ContinueFunc != null){
+            ConversationPart tempFunc = ContinueFunc;
+            ContinueFunc = null;
+            tempFunc();
+        } else {
+            //for old system
+            Continue();
+        }
     }
 
-    //Make more parts as needed
-    //I like to do parts where the conversation path is divided as a and b that way every conversation goes 1, 2, 3, etc. but you get different parts
-
-    //This is the function that the left button calls
-    public void ChooseOption1()
-    {
-        NotChoosing();
-        if (choice == 1)
-        {
-            //Send it to whatever void you want it to go to if you choose option 1 on the first choice
-            //ex:  Part2a();
-        }
-        else if (choice == 2)
-        {
-            //Send it to whatever void you want it to go to if you choose option 1 on the second choice
-        }
-        //Make more if statements as needed
-    }
-
-    //This is the function that the right button calls
-    public void ChooseOption2()
-    {
-        NotChoosing();
-        if (choice == 1)
-        {
-            //Send it to whatever void you want it to go to if you choose option 2 on the first choice
-            //ex:  Part2b();
-        }
-        if (choice == 2)
-        {
-            //Send it to whatever void you want it to go to if you choose option 2 on the second choice
-        }
-        //Make more if statements as needed
-    }
-
-    //This is the function that the continue button calls
-    public void Continue()
-    {
-        NotReading();
-        Debug.Log("ContinueVoid");
-        if (cont == 1)
-        {
-            //Send it to whatever void you want it to go to when they hit continue on the first reading part
-            //ex:  Part3();
-        }
-        else if (cont == 2)
-        {
-           //Send it to whatever void you want it to go to when they hit continue on the first reading part
-        }
-        //Make more if statements as needed
-    }
+    //Implement these in the conversation if using the old cont/choice number style
+    public virtual void ChooseOption1() {}
+    public virtual void ChooseOption2() {}
+    public virtual void Continue() {}
 
     //Call this function when the player must choose something to say
     //It makes the choice button appears
-    void Choosing()
+    public void Choosing()
     {
-        Debug.Log("ChoosingVoid");
         Choice1.SetActive(true);
         Choice2.SetActive(true);
+        ContinueButton.SetActive(false);
+    }
+
+    //Call this to use the new style for conversations
+    //Use the 2 parts this could lead to as parameters
+    public void Choosing(ConversationPart Choice1Part, ConversationPart Choice2Part)
+    {
+        Choice1.SetActive(true);
+        Choice2.SetActive(true);
+        ContinueButton.SetActive(false);
+        Choice1Func = Choice1Part;
+        Choice2Func = Choice2Part;
     }
 
     //Call this function when the player is reading something and has nothing to choose
     //It makes the continue button appear
-    void Reading()
+    public void Reading()
     {
-        Debug.Log("ReadingVoid");
         ContinueButton.SetActive(true);
-    }
-
-    //Call this function when the player has chosen something
-    //It makes the choice buttons inactive
-    void NotChoosing()
-    {
-        Debug.Log("NotChoosingVoid");
         Choice1.SetActive(false);
         Choice2.SetActive(false);
     }
 
-    //Call this function when the player hit continue
-    //It makes the continue button inactive
-    void NotReading()
+    //Supply part this leads to as parameter
+    public void Reading(ConversationPart NextPart)
     {
-        Debug.Log("NotReadingVoid");
-        ContinueButton.SetActive(false);
+        ContinueButton.SetActive(true);
+        Choice1.SetActive(false);
+        Choice2.SetActive(false);
+        ContinueFunc = NextPart;
+    }
+
+    public void NotChoosing()
+    {
+        //obsolete, sticking around as a dummy
+    }
+
+    public void NotReading()
+    {
+        //obsolete, sticking around as a dummy
     }
 	
 	//Call to return to the world after the conversation
-	void EndConversation()
+	public void EndConversation()
 	{
 		SceneManager.LoadScene(Globals.CurrentCity);
 	}
+
+    public void GiveMoney(int amount) {
+        if(NPCName != null){
+            MoneyText.text = NPCName + " gave you " + Globals.FormatMoney(amount);
+        } else {
+            MoneyText.text = "You got " + Globals.FormatMoney(amount);
+        }
+        MoneyPanel.SetActive(true);
+        Globals.Money += amount;
+    }
 }
