@@ -26,7 +26,7 @@ public abstract class ConversationBase
     ConversationPart Choice1Func;
     ConversationPart Choice2Func;
 
-    string playerName = Globals.PlayerName;
+    protected string playerName = Globals.PlayerName;
     public string NPCName;
 	
 	//plz forgive me for this function signature

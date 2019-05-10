@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,9 +16,20 @@ public class ConversationController : MonoBehaviour
     public Text MoneyText;
 
     public void Start(){
-        if(Globals.ConversationPerson == "Example"){
-            ExampleConversation conversation = new ExampleConversation(NPCText, PlayerText1, PlayerText2, Choice1, Choice2, ContinueButton, MoneyPanel, MoneyText);
-            conversation.Part1();
+        Type conversationType = null;
+        switch(Globals.ConversationPerson){
+            case "Example":
+                conversationType = typeof(ExampleConversation);
+                break;
+            case "Tom":
+                if(!Globals.HadFirstTomConversation){
+                    conversationType = typeof(TomConvo1);
+                } else {
+                    conversationType = typeof(TomConvo2);
+                }
+                break;
         }
+        ConversationBase conversation = Activator.CreateInstance(conversationType, NPCText, PlayerText1, PlayerText2, Choice1, Choice2, ContinueButton, MoneyPanel, MoneyText) as ConversationBase;
+        conversation.Part1();
     }
 }

@@ -1008,12 +1008,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b8464b6781e3d0559f9c0831444ffff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NPCText: {fileID: 0}
-  PlayerText1: {fileID: 0}
-  PlayerText2: {fileID: 0}
-  Choice1: {fileID: 0}
-  Choice2: {fileID: 0}
-  ContinueButton: {fileID: 0}
+  NPCText: {fileID: 419915233}
+  PlayerText1: {fileID: 671225535}
+  PlayerText2: {fileID: 1107090651}
+  Choice1: {fileID: 2009990142}
+  Choice2: {fileID: 1210572651}
+  ContinueButton: {fileID: 1550853556}
+  MoneyPanel: {fileID: 762509906}
+  MoneyText: {fileID: 847728534}
 --- !u!1 &1550853556
 GameObject:
   m_ObjectHideFlags: 0

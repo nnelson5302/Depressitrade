@@ -141,11 +141,6 @@ public class MenuController : MonoBehaviour {
 		Globals.gameState = GameState.World;
 	}
 	
-	public void GameOver(string message) {
-		SwitchToMenu(GameOverScreen);
-		GameOverText.text = message;
-	}
-	
 	public void RestartGame() {
 		QuitGame();
 	}

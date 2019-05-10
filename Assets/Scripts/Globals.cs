@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState {MainMenu, Paused, World, Map};
 
@@ -12,7 +13,8 @@ public static class Globals {
 	public static string CurrentCity = "Libertyville";
 	public static GameState gameState = GameState.MainMenu;
 	public static int Week = 1;
-	public static string ConversationPerson = "Example"; //set before changing to conversation scene
+	public static string ConversationPerson = "Tom"; //set before changing to conversation scene
+	public static string GameOverReason = "You died";
 	
 	public static bool GameStarted = false;//set to true after player goes through the main menu
 	
@@ -21,7 +23,7 @@ public static class Globals {
 	//I assume there will be more resources to add once we have progressed the story more...
 	
 	//Story
-	public static bool HadFirstTomConversation = false;
+	public static bool HadFirstTomConversation = true;
 	
 	public static string FormatMoney() {
 		string str = Money.ToString();
@@ -45,5 +47,10 @@ public static class Globals {
 			str = "0.0" + str;
 		}
 		return "$"+str;
+	}
+
+	public static void GameOver(string reason) {
+		GameOverReason = reason;
+		SceneManager.LoadScene("Game Over");
 	}
 }
