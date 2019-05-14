@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Door Panel
+  - Door Text
   layers:
   - Default
   - TransparentFX
