@@ -19,6 +19,7 @@ public class DickWantsAxe : MonoBehaviour {
     int choice;
     int cont;
     string playerName = "Mildred";
+    bool dickfriend = false;
 
     void Start()
     {
@@ -37,7 +38,7 @@ public class DickWantsAxe : MonoBehaviour {
     //It's activated when you enter the conversation
     public void Part1()
     {
-        DickText.text = "Hey, " + name + ". What do you want?";
+        DickText.text = "Hey, " + playerName + ". What do you want?";
         PlayerText1.text = "I was wondering if you had any work for me.";
         PlayerText2.text = "I just came to talk to you. I need some friends around here.";
         choice = 1;
@@ -53,6 +54,7 @@ public class DickWantsAxe : MonoBehaviour {
 
     void Part2b()
     {
+        dickfriend = true;
         DickText.text = "That's nice. I don't have many friends either. I've always been a little bit of a loner.";
         cont = 2;
         Reading();
@@ -138,6 +140,97 @@ public class DickWantsAxe : MonoBehaviour {
         Choosing();
     }
 
+    void Part4a()
+    {
+        DickText.text = "I want a good axe. One that isn't going to break on me.";
+        cont = 6;
+        Reading();
+    }
+
+    void Part4b()
+    {
+        DickText.text = "It's pretty close. Shouldn't be too long of a trip.";
+        cont = 7;
+        Reading();
+    }
+
+    void Part4c()
+    {
+        DickText.text = "And make sure you bring me a good axe. One that isn't going to break on me.";
+        cont = 6;
+        Reading();
+    }
+
+    void Part5()
+    {
+        if (dickfriend == true)
+        {
+            DickText.text = "I trust you not to scam me but if you do I will find out eventually.";
+        }
+        else
+        {
+            DickText.text = "Don't try to scam me either. If you lie about what axe you bought I will find out eventually.";
+        }
+        PlayerText1.text = "I would never do that!";
+        PlayerText2.text = "Alright, but you better pay me well. My family needs the money.";
+        choice = 7;
+        Choosing();
+    }
+
+    void Part6a()
+    {
+        if (dickfriend == true)
+        {
+            DickText.text = "Good. I don't like dishonest friends.";
+        }
+        else
+        {
+            DickText.text = "Good. There are lots of dishonest people out there.";
+        }
+        PlayerText1.text = "I am not one of them.";
+        PlayerText2.text = "What specific kind of axe do you want?";
+        choice = 8;
+        Choosing();
+    }
+
+    void Part6b()
+    {
+        DickText.text = "I'll pay you well if you do what I ask.";
+        PlayerText1.text = "And I will.";
+        PlayerText2.text = "What specific kind of axe do you want?";
+        choice = 8;
+        Choosing();
+    }
+
+    void Part7a()
+    {
+        DickText.text = "So then we have a deal.";
+        cont = 8;
+        Reading();
+    }
+
+    void Part7b()
+    {
+        DickText.text = "I want one of the best axes he has. Something that can get the job done.";
+        cont = 8;
+        Reading();
+    }
+
+    void Part8()
+    {
+        if (dickfriend == true)
+        {
+            DickText.text = "I have to get back to work but good luck. I'll see you when you return.";
+        }
+        else
+        {
+            DickText.text = "I have to get back to work now and I suggest you do too. It's best to leave in the morning.";
+        }
+        cont = 9;
+        Reading();
+    }
+
+
     //Make more parts as needed
     //I like to do parts where the conversation path is divided as a and b that way every conversation goes 1, 2, 3, etc. but you get different parts
 
@@ -165,6 +258,18 @@ public class DickWantsAxe : MonoBehaviour {
         {
             Part2i();
         }
+        else if (choice == 6)
+        {
+            Part4a();
+        }
+        else if (choice == 7)
+        {
+            Part6a();
+        }
+        else if (choice == 8)
+        {
+            Part7a();
+        }
     }
 
     //This is the function that the right button calls
@@ -191,6 +296,18 @@ public class DickWantsAxe : MonoBehaviour {
         {
             Part2j();
         }
+        else if (choice == 6)
+        {
+            Part4b();
+        }
+        else if (choice == 7)
+        {
+            Part6b();
+        }
+        else if (choice == 8)
+        {
+            Part7b();
+        }
     }
 
     //This is the function that the continue button calls
@@ -216,6 +333,22 @@ public class DickWantsAxe : MonoBehaviour {
         else if (cont == 5)
         {
             Part2k();
+        }
+        else if (cont == 6)
+        {
+            Part5();
+        }
+        else if (cont == 7)
+        {
+            Part4c();
+        }
+        else if (cont == 8)
+        {
+            Part8();
+        }
+        else if (cont == 9)
+        {
+            //Return to scene
         }
     }
 

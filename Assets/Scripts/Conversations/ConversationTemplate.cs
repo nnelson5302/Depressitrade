@@ -7,7 +7,7 @@ using UnityEngine.UI;
 //Anything with underscores on either side of it should be replaced with something specific to the conversation
 public class ConversationTemplate : MonoBehaviour
 {
-    public Text _CharacterName_Text;
+    public Text DickText;
     public Text PlayerText1;
     public Text PlayerText2;
     public GameObject Choice1;
@@ -36,7 +36,7 @@ public class ConversationTemplate : MonoBehaviour
     //It's activated when you enter the conversation
     public void Part1()
     {
-        _CharacterName_Text.text = "_Whatever you want the character to say first_";
+        DickText.text = "_Whatever you want the character to say first_";
         PlayerText1.text = "_This text appears on the left button_";
         PlayerText2.text = "_This text appears on the right button_";
         choice = 1;
@@ -45,14 +45,14 @@ public class ConversationTemplate : MonoBehaviour
 
     void Part2a()
     {
-        _CharacterName_Text.text = "_This is what I say if you click the left button_";
+        DickText.text = "_This is what I say if you click the left button_";
         cont = 1;
         Reading();
     }
 
     void Part2b()
     {
-        _CharacterName_Text.text = "_This is what I say if you click the right button_";
+        DickText.text = "_This is what I say if you click the right button_";
         cont = 1;
         Reading();
     }
@@ -85,7 +85,7 @@ public class ConversationTemplate : MonoBehaviour
             //Send it to whatever void you want it to go to if you choose option 2 on the first choice
             //ex:  Part2b();
         }
-        if (choice == 2)
+        else if (choice == 2)
         {
             //Send it to whatever void you want it to go to if you choose option 2 on the second choice
         }
