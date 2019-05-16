@@ -66,7 +66,8 @@ public class ExampleConversation : ConversationBase
         NPCText.text = "What did I ever do to you? Goodbye.";
         Reading(EndConversation);
     }
-
+	
+	// Be sure to add override to Continue and ChooseOption1/2, otherwise they won't be called
     public override void Continue(){
         if(cont == 4){
             Part4();

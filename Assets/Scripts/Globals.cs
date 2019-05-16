@@ -23,7 +23,7 @@ public static class Globals {
 	//I assume there will be more resources to add once we have progressed the story more...
 	
 	//Story
-	public static bool HadFirstTomConversation = true;
+	public static bool HadFirstTomConversation = false;
 	
 	public static string FormatMoney() {
 		string str = Money.ToString();

@@ -6402,7 +6402,7 @@ GameObject:
   - component: {fileID: 556594923}
   - component: {fileID: 556594926}
   - component: {fileID: 556594922}
-  - component: {fileID: 556594927}
+  - component: {fileID: 556594925}
   - component: {fileID: 556594928}
   m_Layer: 0
   m_Name: player
@@ -6495,6 +6495,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &556594925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 556594921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0381b1d26dc3619458a169b880a0c88f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chatPanel: {fileID: 493648706}
+  NPC: {fileID: 1873787380}
+  NPCName: Tom
 --- !u!61 &556594926
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6521,21 +6536,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.8, y: 4.8}
   m_EdgeRadius: 0
---- !u!114 &556594927
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 556594921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0381b1d26dc3619458a169b880a0c88f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chatPanel: {fileID: 493648706}
-  tom: {fileID: 1873787380}
-  ConversationScene: Tom conversation
 --- !u!114 &556594928
 MonoBehaviour:
   m_ObjectHideFlags: 0

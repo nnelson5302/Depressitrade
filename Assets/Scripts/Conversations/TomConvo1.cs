@@ -123,7 +123,7 @@ public class TomConvo1 : ConversationBase {
 		Reading();
 	}
     
-    public void ChooseOption1()
+    public override void ChooseOption1()
     {
         NotChoosing();
         if (choice==1)
@@ -141,7 +141,7 @@ public class TomConvo1 : ConversationBase {
         }
     }
     
-    public void ChooseOption2() {
+    public override void ChooseOption2() {
         NotChoosing();
         if (choice == 1)
         {
@@ -158,7 +158,7 @@ public class TomConvo1 : ConversationBase {
         }
     }
 
-    public void Continue()
+    public override void Continue()
     {
         NotReading();
         if (cont == 1)
