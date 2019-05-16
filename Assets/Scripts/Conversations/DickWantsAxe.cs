@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 
 //Anything with underscores on either side of it should be replaced with something specific to the conversation
-public class DickWantsAxe : MonoBehaviour {
+public class DickWantsAxe : ConversationBase {
 	
 	public DickWantsAxe(
 		Text _NPCText,
@@ -26,12 +26,14 @@ public class DickWantsAxe : MonoBehaviour {
         _MoneyPanel,
         _MoneyText
     ) {}
+	
+	bool dickfriend = false;
 
     //Make different parts of the story in voids
 
     //Part 1 is the first thing the character says to you
     //It's activated when you enter the conversation
-    public void Part1()
+    public override void Part1()
     {
         NPCText.text = "Hey, " + playerName + ". What do you want?";
         PlayerText1.text = "I was wondering if you had any work for me.";
@@ -230,7 +232,7 @@ public class DickWantsAxe : MonoBehaviour {
     //I like to do parts where the conversation path is divided as a and b that way every conversation goes 1, 2, 3, etc. but you get different parts
 
     //This is the function that the left button calls
-    public void ChooseOption1()
+    public override void ChooseOption1()
     {
         NotChoosing();
         if (choice == 1)
@@ -268,7 +270,7 @@ public class DickWantsAxe : MonoBehaviour {
     }
 
     //This is the function that the right button calls
-    public void ChooseOption2()
+    public override void ChooseOption2()
     {
         NotChoosing();
         if (choice == 1)
@@ -306,7 +308,7 @@ public class DickWantsAxe : MonoBehaviour {
     }
 
     //This is the function that the continue button calls
-    public void Continue()
+    public override void Continue()
     {
         NotReading();
         if (cont == 1)
