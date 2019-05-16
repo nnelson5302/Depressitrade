@@ -37,7 +37,7 @@ public class TomConvo1 : MonoBehaviour {
 
     public void Part1()
     {
-        //TomText.fontSize = 300;
+        TomText.fontSize = 35;
         TomText.text = "Hey! It's nice to see you again!";
         PlayerText1.text = "It's been a while, Tom!";
         PlayerText2.text = "Who are you?";
@@ -61,7 +61,7 @@ public class TomConvo1 : MonoBehaviour {
     
     void Part3()
     {
-        //TomText.fontSize = 300;
+        TomText.fontSize = 25;
         TomText.text = "I heard that your family is going through some tough times. I could pay you to do a few jobs for me.";
         PlayerText1.text = "What do you want me to do?";
         PlayerText2.text = "I don't need your help";
@@ -85,7 +85,7 @@ public class TomConvo1 : MonoBehaviour {
 
     void Part4()
     {
-        //TomText.fontSize = 300;
+        TomText.fontSize = 26;
         TomText.text = "I'm running low on wood. If you can get me 20 planks of wood. I'll pay you $3.50.";
         PlayerText1.text = "Only $3.50!?!";
         PlayerText2.text = "Thanks, Tim!";

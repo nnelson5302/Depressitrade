@@ -6,12 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Libertyville/2D libertyville.unity
+    path: Assets/Scenes/2D libertyville.unity
     guid: 601f337f709b5c24286257de5372f64b
   - enabled: 1
-    path: Assets/Scenes/Conversations/Tom conversation.unity
+    path: Assets/Scenes/Tom conversation.unity
     guid: c0d26f288963ef24a9d72a75cbb72acc
   - enabled: 1
-    path: Assets/Scenes/Libertyville/Interiors/Tom Inside.unity
+    path: Assets/Scenes/Tom Inside.unity
     guid: ffc360c3962ceb047a9fbf4ea4e7f13a
   m_configObjects: {}
