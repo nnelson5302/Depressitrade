@@ -44,8 +44,6 @@ public class NPCController : MonoBehaviour
                 {
                     npcDirX[i] = Random.Range(-1f, 1f);
                     npcDirY[i] = Random.Range(-1f, 1f); //Set direction to not zero, moves in a random direction
-                    Debug.Log(npcDirX[i]);
-                    Debug.Log(npcDirY[i]);
                 }
 
                 else

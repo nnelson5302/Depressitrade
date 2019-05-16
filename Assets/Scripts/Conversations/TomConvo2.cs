@@ -58,6 +58,7 @@ public class TomConvo2 : ConversationBase
     void Part3()
     {
         GiveMoney(350);
+		Globals.wood -= 20;
         cont = 3;
         Reading();
     }

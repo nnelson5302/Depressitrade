@@ -66,7 +66,6 @@ public abstract class ConversationBase
 
     public void OnClickOption1()
     {
-		Debug.Log("clicked option 1");
         if (Choice1Func != null){
 			Debug.Log("not null");
             ConversationPart tempFunc = Choice1Func;

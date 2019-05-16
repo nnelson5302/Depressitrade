@@ -30,6 +30,7 @@ public class TomConvo1 : ConversationBase {
 
     public override void Part1()
     {
+		Globals.HadFirstTomConversation = true;
         NPCText.fontSize = 35;
         NPCText.text = "Hey! It's nice to see you again!";
         PlayerText1.text = "It's been a while, Tom!";

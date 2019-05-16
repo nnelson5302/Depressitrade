@@ -28,6 +28,9 @@ public class ConversationController : MonoBehaviour
                     conversationType = typeof(TomConvo2);
                 }
                 break;
+			case "Dick":
+				conversationType = typeof(DickConvo1);
+				break;
         }
         ConversationBase conversation = Activator.CreateInstance(conversationType, NPCText, PlayerText1, PlayerText2, Choice1, Choice2, ContinueButton, MoneyPanel, MoneyText) as ConversationBase;
         conversation.Part1();
