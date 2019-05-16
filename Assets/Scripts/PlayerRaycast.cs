@@ -16,6 +16,7 @@ public class PlayerRaycast : MonoBehaviour
     public LayerMask layerMask;
     public GameObject doorPanel;
     public Text doorText;
+    public GameObject player;
 
     void Start()
     {
@@ -26,7 +27,6 @@ public class PlayerRaycast : MonoBehaviour
         u = rayU.distance;
         l = rayL.distance;
         r = rayR.distance;
-        DontDestroyOnLoad(this);
     }
 
     void Update()
@@ -121,7 +121,6 @@ public class PlayerRaycast : MonoBehaviour
             if (hitPoint.x == 44 && hitPoint.y == -28 && curScene.name == "Tom Inside")
             {
                 SceneManager.LoadScene("2D Libertyville");
-                transform.position = new Vector2(46.5f, -29.5f);
                // Debug.Log("True");
             }
         }
