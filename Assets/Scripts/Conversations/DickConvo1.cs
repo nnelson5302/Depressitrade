@@ -29,6 +29,7 @@ public class DickConvo1 : ConversationBase
 
     public override void Part1()
     {
+		Globals.HadFirstDickConversation = true;
         DickSize(35);
         NPCText.text = "Hi, my name is Richard but you can call me Dick. Do you need some wood?";
         PlayerText1.text = "Yeah. I heard you have the best wood around.";

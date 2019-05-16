@@ -28,6 +28,7 @@ public class TomConvo2 : ConversationBase
 
     public override void Part1()
     {
+		Globals.HadSecondTomConversation = true;
         NPCText.text = "Did you get me some wood?";
         PlayerText1.text = "Yes, of course.";
         PlayerText2.text = "No.";

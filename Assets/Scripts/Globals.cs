@@ -24,6 +24,8 @@ public static class Globals {
 	
 	//Story
 	public static bool HadFirstTomConversation = false;
+	public static bool HadSecondTomConversation = false;
+	public static bool HadFirstDickConversation = false;
 	
 	public static string FormatMoney() {
 		string str = Money.ToString();
