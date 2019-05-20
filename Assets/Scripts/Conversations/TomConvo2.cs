@@ -28,14 +28,25 @@ public class TomConvo2 : ConversationBase
 
     public override void Part1()
     {
-		Globals.HadSecondTomConversation = true;
-        NPCText.text = "Did you get me some wood?";
-        PlayerText1.text = "Yes, of course.";
-        PlayerText2.text = "No.";
-        choice = 1;
-        Choosing();
+		if(!Globals.HadFirstDickConversation) {
+			NPCText.text = "Did you go to Potato Hill yet?";
+			ContinueText.text = "No.";
+			Reading(Part2z);
+		} else {
+			Globals.HadSecondTomConversation = true;
+			NPCText.text = "Did you get me some wood?";
+			PlayerText1.text = "Yes, of course.";
+			PlayerText2.text = "No.";
+			choice = 1;
+			Choosing();
+		}
     }
-
+	
+	void Part2z(){
+		NPCText.text = "Well, what are you waiting for? Just open your map and click on Potato Hill to go there.";
+		Reading(EndConversation);
+	}
+	
     void Part2a()
     {
         if(Globals.wood >= 20){
