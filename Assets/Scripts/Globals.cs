@@ -8,7 +8,10 @@ public enum GameState {MainMenu, Paused, World, Map};
 //just for having static variables, don't instantiate this class
 public static class Globals {
 	public static string PlayerName = "Walter";
-	public static int Money = 500; //this is in cents to avoid floating point errors
+    public static string parentType = "generic_parental_unit_277.0.1";
+    public static string spouseType = "generic_parental_unit_277.0.2";
+    public static string spousePronoun = "generic_pronoun277.0.2";
+    public static int Money = 500; //this is in cents to avoid floating point errors
 	public static float Volume = 0; //our game has no sound lol
 	public static string CurrentCity = "Libertyville";
 	public static GameState gameState = GameState.MainMenu;
@@ -26,8 +29,10 @@ public static class Globals {
 	public static bool HadFirstTomConversation = false;
 	public static bool HadSecondTomConversation = false;
 	public static bool HadFirstDickConversation = false;
-	
-	public static string FormatMoney() {
+	public static bool dickfriend = false;
+    public static int AxeType = 1;
+
+    public static string FormatMoney() {
 		string str = Money.ToString();
 		if (str.Length >= 3){
 			str = str.Insert(str.Length-2,".");

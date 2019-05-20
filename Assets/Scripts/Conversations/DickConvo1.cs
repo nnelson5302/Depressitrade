@@ -172,7 +172,7 @@ public class DickConvo1 : ConversationBase
     {
         NPCText.text = "Alright, it's a done deal! $2.75 it is!";
 		cont = 4;
-		Globals.Money -= 275;
+		SpendMoney(275);
 		Globals.wood += 20;
 		Reading();
     }
@@ -182,7 +182,7 @@ public class DickConvo1 : ConversationBase
         DickSize(30);
         NPCText.text = "Thank god you're at least somewhat agreeable. Well here's your wood. Good day!";
 		cont = 4;
-		Globals.Money -= 310;
+		SpendMoney(310);
 		Globals.wood += 20;
 		Reading();
     }
@@ -193,7 +193,7 @@ public class DickConvo1 : ConversationBase
         NPCText.color = new Color(0, 0, 0);
         NPCText.text = "The devs got involved? Well at least they talked some sense into ya. Take your wood and leave.";
 		cont = 4;
-		Globals.Money -= 310;
+		SpendMoney(310);
 		Globals.wood += 20;
 		Reading();
     }
@@ -202,7 +202,7 @@ public class DickConvo1 : ConversationBase
     {
         NPCText.text = "I'm only so generous and $3.00 is a fair price anyway. Good luck!";
 		cont = 4;
-		Globals.Money -= 300;
+		SpendMoney(300);
 		Globals.wood += 20;
 		Reading();
     }

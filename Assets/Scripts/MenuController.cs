@@ -30,6 +30,7 @@ public class MenuController : MonoBehaviour {
 	
 	public void ChooseName(string newname) {
 		Globals.PlayerName = newname;
+        Globals.
 		CloseMenus();
 		Globals.gameState = GameState.World;
 	}

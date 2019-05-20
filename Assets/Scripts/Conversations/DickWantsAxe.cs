@@ -26,8 +26,6 @@ public class DickWantsAxe : ConversationBase {
         _MoneyPanel,
         _MoneyText
     ) {}
-	
-	bool dickfriend = false;
 
     //Make different parts of the story in voids
 
@@ -51,7 +49,7 @@ public class DickWantsAxe : ConversationBase {
 
     void Part2b()
     {
-        dickfriend = true;
+        Globals.dickfriend = true;
         NPCText.text = "That's nice. I don't have many friends either. I've always been a little bit of a loner.";
         cont = 2;
         Reading();
@@ -160,7 +158,7 @@ public class DickWantsAxe : ConversationBase {
 
     void Part5()
     {
-        if (dickfriend == true)
+        if (Globals.dickfriend == true)
         {
             NPCText.text = "I trust you not to scam me but if you do I will find out eventually.";
         }
@@ -176,7 +174,7 @@ public class DickWantsAxe : ConversationBase {
 
     void Part6a()
     {
-        if (dickfriend == true)
+        if (Globals.dickfriend == true)
         {
             NPCText.text = "Good. I don't like dishonest friends.";
         }
@@ -215,7 +213,7 @@ public class DickWantsAxe : ConversationBase {
 
     void Part8()
     {
-        if (dickfriend == true)
+        if (Globals.dickfriend == true)
         {
             NPCText.text = "I have to get back to work but good luck. I'll see you when you return.";
         }
