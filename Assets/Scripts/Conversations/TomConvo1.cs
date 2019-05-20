@@ -90,6 +90,8 @@ public class TomConvo1 : ConversationBase {
     void Part5a()
     {
         NPCText.text = "Times are hard. Take what you can get, Ninnyhammer!";
+		ContinueText.fontSize = 60;
+		ContinueText.text = "Where can I get wood?";
         Reading(Part6);
 
     }
@@ -112,13 +114,14 @@ public class TomConvo1 : ConversationBase {
             }
         }
         cont = 3;
-		//ContinueText.text = "Where can I get wood?";
+		ContinueText.fontSize = 60;
+		ContinueText.text = "Where can I get wood?";
         Reading(Part6);
     }
 	
 	void Part6()
-	{	
-		NPCText.text = "You can buy some from my friend Dick, in Potato Hill.";
+	{
+		NPCText.text = "You can buy some from my friend Dick, in Potato Hill. Use your map to get there.";
 		//ContinueText.text = "Continue";
 		cont = 4;
 		Reading();

@@ -17,6 +17,7 @@ public abstract class ConversationBase
     public Button Button1;
     public Button Button2;
     public Button ContButton;
+	public Text ContinueText;
     public GameObject MoneyPanel;
     public Text MoneyText;
 
@@ -27,7 +28,7 @@ public abstract class ConversationBase
     ConversationPart Choice2Func;
 
     protected string playerName = Globals.PlayerName;
-    public string NPCName;
+    public string NPCName = Globals.ConversationPerson;
 	
 	//plz forgive me for this function signature
     public ConversationBase(
@@ -52,6 +53,7 @@ public abstract class ConversationBase
 		ContButton = ContinueButton.GetComponent<Button>();
         MoneyPanel = _MoneyPanel;
         MoneyText = _MoneyText;
+		ContinueText = ContinueButton.GetComponent<Transform>().GetChild(0).GetComponent<Text>();
 		
         Choice1.SetActive(false);
         Choice2.SetActive(false);
@@ -91,6 +93,8 @@ public abstract class ConversationBase
 
     public void OnClickContinue()
     {
+		ContinueText.text = "Continue";
+		ContinueText.fontSize = 90;
         if (ContinueFunc != null){
             ConversationPart tempFunc = ContinueFunc;
             ContinueFunc = null;
@@ -167,6 +171,14 @@ public abstract class ConversationBase
             MoneyText.text = "You got " + Globals.FormatMoney(amount);
         }
         MoneyPanel.SetActive(true);
+		MoneyPanel.GetComponent<Image>().color = Color.green;
         Globals.Money += amount;
     }
+	
+	public void SpendMoney(int amount) {
+		MoneyText.text = "You gave " + Globals.FormatMoney(amount) + " to " + NPCName;
+		MoneyPanel.SetActive(true);
+		MoneyPanel.GetComponent<Image>().color = new Color(1f, 0.2f, 0.2f, 1f);
+		Globals.Money -= amount;
+	}
 }
