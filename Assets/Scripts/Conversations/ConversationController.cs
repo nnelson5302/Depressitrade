@@ -24,9 +24,11 @@ public class ConversationController : MonoBehaviour
             case "Tom":
                 if(!Globals.HadFirstTomConversation){
                     conversationType = typeof(TomConvo1);
-                } else {
+                } else if(!Globals.HadSecondTomConversation) {
                     conversationType = typeof(TomConvo2);
-                }
+                } else {
+					conversationType = typeof(TomConvo3);
+				}
                 break;
 			case "Dick":
 				conversationType = typeof(DickConvo1);

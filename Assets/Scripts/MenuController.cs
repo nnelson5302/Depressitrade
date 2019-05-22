@@ -14,6 +14,8 @@ public class MenuController : MonoBehaviour {
 	public GameObject GameOverScreen;
 	public Text GameOverText;
 	
+	public GameObject MapButton;
+	
 	public GameObject HUD;
 	public GameObject InfoBar;
 	public Text CityNameObj;
@@ -40,6 +42,9 @@ public class MenuController : MonoBehaviour {
 			CloseMenus();
 		} else {
 			SwitchToMenu(MainMenu);
+		}
+		if (!Globals.HadFirstTomConversation){
+			MapButton.SetActive(false);
 		}
 	}
 	
@@ -143,6 +148,12 @@ public class MenuController : MonoBehaviour {
 	
 	public void RestartGame() {
 		QuitGame();
+	}
+	
+	public void Travel(string SceneName) {
+		Globals.Week += 1;
+		SceneManager.LoadScene(SceneName);
+		Globals.CurrentCity = SceneName;
 	}
 	
 }
