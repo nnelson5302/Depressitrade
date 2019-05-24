@@ -23,9 +23,9 @@ public abstract class ConversationBase
 
     public int choice;
     public int cont;
-    public ConversationPart ContinueFunc;
-    public ConversationPart Choice1Func;
-    public ConversationPart Choice2Func;
+    ConversationPart ContinueFunc;
+    ConversationPart Choice1Func;
+    ConversationPart Choice2Func;
 
     protected string playerName = Globals.PlayerName;
     public string NPCName = Globals.ConversationPerson;
