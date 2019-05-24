@@ -74,8 +74,8 @@ public class DickConvo1 : ConversationBase
     void Part4a()
     {
         NPCText.text = "Great! That will be three dollars.";
-        PlayerText1.text = "Three dollars? Please, sir. Tom's only paying me $5.00!";
-        PlayerText2.text = "No way! You won't be able to scam me you Twit!!";
+        PlayerText1.text = "No way! You won't be able to scam me you Twit!!";
+        PlayerText2.text = "Three dollars? Please, sir. Tom's only paying me $5.00!";
         choice = 4;
         Choosing();
     }
@@ -224,7 +224,7 @@ public class DickConvo1 : ConversationBase
         }
         else if (choice == 4)
         {
-            Part5a();
+            Part5b();
         }
         else if (choice == 5)
         {
@@ -269,7 +269,7 @@ public class DickConvo1 : ConversationBase
         }
         else if (choice == 4)
         {
-            Part5b();
+            Part5a();
         }
         else if (choice == 5)
         {

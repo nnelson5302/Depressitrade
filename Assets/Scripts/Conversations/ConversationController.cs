@@ -23,13 +23,26 @@ public class ConversationController : MonoBehaviour
                 break;
             case "Tom":
                 if(!Globals.HadFirstTomConversation){
+                    //conversationType = typeof(TomConvo1);
                     conversationType = typeof(TomConvo1);
-                } else {
+                }
+                else {
                     conversationType = typeof(TomConvo2);
                 }
                 break;
 			case "Dick":
-				conversationType = typeof(DickConvo1);
+                if (!Globals.HadFirstDickConversation)
+                {
+                    conversationType = typeof(DickConvo1);
+                }
+                else if (Globals.axe>=1)
+                {
+                    conversationType = typeof(GiveAxe);
+                }
+                else
+                {
+                    conversationType = typeof(DickWantsAxe);
+                }
 				break;
         }
         ConversationBase conversation = Activator.CreateInstance(conversationType, NPCText, PlayerText1, PlayerText2, Choice1, Choice2, ContinueButton, MoneyPanel, MoneyText) as ConversationBase;

@@ -24,7 +24,7 @@ public abstract class ConversationBase
     public int choice;
     public int cont;
     ConversationPart ContinueFunc;
-    ConversationPart Choice1Func;
+    public ConversationPart Choice1Func;
     ConversationPart Choice2Func;
 
     protected string playerName = Globals.PlayerName;
@@ -72,6 +72,7 @@ public abstract class ConversationBase
 			Debug.Log("not null");
             ConversationPart tempFunc = Choice1Func;
             Choice1Func = null;
+            Choice2Func = null;
             tempFunc();
         } else {
             //for old system
@@ -83,6 +84,7 @@ public abstract class ConversationBase
     {
         if (Choice2Func != null){
             ConversationPart tempFunc = Choice2Func;
+            Choice1Func = null;
             Choice2Func = null;
             tempFunc();
         } else {
@@ -93,6 +95,7 @@ public abstract class ConversationBase
 
     public void OnClickContinue()
     {
+        ContinueButton.SetActive(false);
 		ContinueText.text = "Continue";
 		ContinueText.fontSize = 90;
         if (ContinueFunc != null){

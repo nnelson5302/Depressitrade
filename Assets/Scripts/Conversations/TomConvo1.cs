@@ -57,8 +57,8 @@ public class TomConvo1 : ConversationBase {
     {
         NPCText.fontSize = 25;
         NPCText.text = "I heard that your family is going through some tough times. I could pay you to do a few jobs for me.";
-        PlayerText1.text = "What do you want me to do?";
-        PlayerText2.text = "I don't need your help.";
+        PlayerText1.text = "I don't need your help.";
+        PlayerText2.text = "What do you want me to do?";
         choice = 2;
         Choosing();
     }
@@ -137,7 +137,7 @@ public class TomConvo1 : ConversationBase {
         }
         else if (choice == 2)
         {
-            Part4();
+            Part3c();
         }
         else if (choice == 3)
         {
@@ -154,7 +154,7 @@ public class TomConvo1 : ConversationBase {
         }
         else if (choice == 2)
         {
-           Part3c();
+           Part4();
         }
         else if (choice == 3)
         {
