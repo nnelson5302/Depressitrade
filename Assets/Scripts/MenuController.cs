@@ -11,26 +11,41 @@ public class MenuController : MonoBehaviour {
 	public GameObject SettingsMenu;
 	public GameObject NameChooser;
 	public GameObject PauseMenu;
+	public GameObject GameOverScreen;
+	public Text GameOverText;
+	
+	public GameObject MapButton;
 	
 	public GameObject HUD;
 	public GameObject InfoBar;
+	public Text CityNameObj;
 	public Text MoneyText;
+	public Text WeekText;
 	
 	public GameObject Map;
+	public GameObject Inventory;
+	public Text InventoryText;
 	
 	private GameObject CurrentMenu = null;//null means no menu is open
 	
 	public Slider VolumeSlider;
 	
 	public void ChooseName(string newname) {
-		Globals.playerName = newname;
-		CloseMenus();
+		Globals.PlayerName = newname;
+        CloseMenus();
 		Globals.gameState = GameState.World;
 	}
 	
 	// Use this for initialization
 	void Start () {
-		SwitchToMenu(MainMenu);
+		if (Globals.GameStarted){
+			CloseMenus();
+		} else {
+			SwitchToMenu(MainMenu);
+		}
+		if (!Globals.HadFirstTomConversation){
+			MapButton.SetActive(false);
+		}
 	}
 	
 	// Update is called once per frame
@@ -39,6 +54,14 @@ public class MenuController : MonoBehaviour {
 			TogglePause();
 		}
 		MoneyText.text = Globals.FormatMoney();
+		WeekText.text = "Week " + Globals.Week;
+		UpdateInventoryText();
+		CityNameObj.text = Globals.CurrentCity;
+	}
+	
+	void UpdateInventoryText() {
+		InventoryText.text = 
+			"Wood: " + Globals.wood.ToString() + "\n";
 	}
 	
 	//main menu
@@ -63,6 +86,7 @@ public class MenuController : MonoBehaviour {
 	
 	public void StartGame() {
 		SwitchToMenu(NameChooser);
+		Globals.GameStarted = true;
 	}
 	
 	public void OpenSettings() {
@@ -87,7 +111,7 @@ public class MenuController : MonoBehaviour {
 	}
 	
 	public void UpdateVolume() {
-		Globals.volume = VolumeSlider.value;
+		Globals.Volume = VolumeSlider.value;
 	}
 	
 	public void OpenPauseMenu() {
@@ -120,6 +144,16 @@ public class MenuController : MonoBehaviour {
 	public void CloseMap() {
 		Map.SetActive(false);
 		Globals.gameState = GameState.World;
+	}
+	
+	public void RestartGame() {
+		QuitGame();
+	}
+	
+	public void Travel(string SceneName) {
+		Globals.Week += 1;
+		SceneManager.LoadScene(SceneName);
+		Globals.CurrentCity = SceneName;
 	}
 	
 }
