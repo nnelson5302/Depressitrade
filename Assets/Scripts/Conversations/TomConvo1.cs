@@ -7,24 +7,27 @@ using UnityEngine.SceneManagement;
 public class TomConvo1 : ConversationBase {
     
     public TomConvo1(
-		Text _NPCText,
-		Text _PlayerText1,
-		Text _PlayerText2,
-		GameObject _Choice1,
-		GameObject _Choice2,
-		GameObject _ContinueButton,
+        Text _NPCText,
+        Text _PlayerText1,
+        Text _PlayerText2,
+        GameObject _Choice1,
+        GameObject _Choice2,
+        GameObject _ContinueButton,
+        GameObject _NPC,
         GameObject _MoneyPanel,
         Text _MoneyText
-	) : base(
+    ) : base(
         _NPCText,
         _PlayerText1,
         _PlayerText2,
         _Choice1,
         _Choice2,
         _ContinueButton,
+        _NPC,
         _MoneyPanel,
         _MoneyText
-    ) {}
+    )
+    { }
 
     bool rememberedName;
 
@@ -80,8 +83,8 @@ public class TomConvo1 : ConversationBase {
     void Part4()
     {
         NPCText.fontSize = 26;
-        NPCText.text = "I'm running low on wood. If you can get me 20 planks of wood. I'll pay you $5.00.";
-        PlayerText1.text = "Only $5.00!?!";
+        NPCText.text = "I'm running low on wood. If you can get me 20 planks of wood. I'll pay you $6.00.";
+        PlayerText1.text = "Only $6.00!?!";
         PlayerText2.text = "Thanks, Tim!";
         choice = 3;
         Choosing();

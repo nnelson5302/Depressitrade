@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -228,8 +228,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: -60, y: -30}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -60, y: -60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &520668727
 MonoBehaviour:
@@ -255,7 +255,7 @@ MonoBehaviour:
     m_Font: {fileID: 12800000, guid: 48c9c31ca73486745a538504df3a228a, type: 3}
     m_FontSize: 55
     m_FontStyle: 0
-    m_BestFit: 0
+    m_BestFit: 1
     m_MinSize: 0
     m_MaxSize: 100
     m_Alignment: 0
@@ -720,6 +720,7 @@ GameObject:
   - component: {fileID: 1838813478}
   - component: {fileID: 1838813477}
   - component: {fileID: 1838813479}
+  - component: {fileID: 1838813480}
   m_Layer: 5
   m_Name: Letter
   m_TagString: Untagged
@@ -797,6 +798,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   letterText: {fileID: 520668727}
+  Alice: {fileID: 12800000, guid: 48c9c31ca73486745a538504df3a228a, type: 3}
+  Spouse: {fileID: 12800000, guid: b9f8b8043da0a3e4bb1952cba2be40a4, type: 3}
+--- !u!114 &1838813480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838813475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad0107f4357b7a043b1f26e075002989, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Name: 
+  m_EditorClassIdentifier: 
+  letterText: {fileID: 0}
 --- !u!1 &2128389562
 GameObject:
   m_ObjectHideFlags: 0

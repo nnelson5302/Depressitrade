@@ -7,29 +7,38 @@ public class WeNeedThreeFiddy : MonoBehaviour
 {
     // Start is called before the first frame update
     public Text letterText;
-    string parentType = "generic_parental_unit_277.0.1";
-    string spouseType = "generic_parental_unit_277.0.2";
-    string spousePronoun = "generic_pronoun277.0.2";
+    int letternumber = 1;
+    public Font Alice;
+    public Font Spouse;
 
     void Start()
     {
-        if (Globals.PlayerName == "Walter")
+        if (letternumber == 1)
         {
-            parentType = "daddy";
-            spouseType = "mommy";
-            spousePronoun = "she";
+            letterText.font = Alice;
+            letterText.text = "Hi " + Globals.parentType + "!\n Im almost five yers old! " + Globals.spouseType +
+                " is really tierd and mad. " + Globals.spousePronoun + " says you are getting monie to get us food." +
+                " Im really hungrie. We only eat potatos and " + Globals.spouseType + " says were running out of those. " +
+                "We need monie. " + Globals.spouseType + " told me to ask you for fiften dolers. Can you do that " +
+                Globals.parentType + "? If you dont I dont no what well do. \n \n  Love, Alice";
+            letternumber++;
         }
-        else
+        else if (letternumber == 2)
         {
-            parentType = "mommy";
-            spouseType = "daddy";
-            spousePronoun = "he";
+            letterText.font = Spouse;
+            letterText.text = "Dear " + Globals.PlayerName + ",\nThank you for all the work you've been doing and I hope you're doing well.\n" +
+            "I miss you and I truly wish that you were home with us. The kids are okay and it's hard to take care " +
+            "of them by myself but I'm managing. Depsite the money you sent us, we're running out of food. I know it's " +
+            "tough to get good work but we need you to do whatever you possibly can to make money for us or I fear " +
+            "we won't survive. I love you and if anybody can do this, it's you. When you lost your job, that was the "  +
+            "biggest mistake the bank could've made, but your banking skills must be very useful in trading or whatever " +
+            "it is you're doing. If you could win the lottery or something and come home, that's all I " +
+            "could ever ask for but I know that's not possible. Anyhow, looking at our expenses, we're going to need 20 " +
+            "dollars soon. I hope it's not too much to ask. Bill's store closed so I've been having to go out of town " +
+            "to get food, meaning I have to pay somebody to watch the kids. School can't start soon enough. I love you " +
+            "dearly and I hope this is all over soon and one of us can find a stable job.\n\nLove, " +
+            Globals.spouseName;
         }
-
-        letterText.text = "Hi " + parentType + "!\n Im almost five yers old! " + spouseType + " is really tierd and mad. " + spousePronoun +
-            " says you are getting monie to get us food. Im really hungrie. We only eat potatos and " + spouseType +
-            " says were running out of those. We need monie. " + spouseType + " told me to ask you for ten dolers. Can you do that " +
-            parentType + "? If you dont I dont no what well do. \n \n  Love, Alice";
     }
 
 }

@@ -14,6 +14,7 @@ public class GetAxe : ConversationBase
         GameObject _Choice1,
         GameObject _Choice2,
         GameObject _ContinueButton,
+        GameObject _NPC,
         GameObject _MoneyPanel,
         Text _MoneyText
     ) : base(
@@ -23,6 +24,7 @@ public class GetAxe : ConversationBase
         _Choice1,
         _Choice2,
         _ContinueButton,
+        _NPC,
         _MoneyPanel,
         _MoneyText
     )

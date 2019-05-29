@@ -7,13 +7,14 @@ using UnityEngine.SceneManagement;
 
 public class DickConvo1 : ConversationBase
 {
-	public DickConvo1(
-		Text _NPCText,
-		Text _PlayerText1,
-		Text _PlayerText2,
-		GameObject _Choice1,
-		GameObject _Choice2,
-		GameObject _ContinueButton,
+    public DickConvo1(
+        Text _NPCText,
+        Text _PlayerText1,
+        Text _PlayerText2,
+        GameObject _Choice1,
+        GameObject _Choice2,
+        GameObject _ContinueButton,
+        GameObject _NPC,
         GameObject _MoneyPanel,
         Text _MoneyText
 	) : base(
@@ -23,6 +24,7 @@ public class DickConvo1 : ConversationBase
         _Choice1,
         _Choice2,
         _ContinueButton,
+        _NPC,
         _MoneyPanel,
         _MoneyText
     ) {}

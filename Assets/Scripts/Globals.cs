@@ -9,9 +9,10 @@ public enum GameState {MainMenu, Paused, World, Map};
 public static class Globals {
 	public static string PlayerName = "Walter";
     public static string parentType = "daddy";
+    public static string spouseName = "generic_name_277.0.2";
     public static string spouseType = "generic_parental_unit_277.0.2";
     public static string spousePronoun = "generic_pronoun277.0.2";
-    public static int Money = 500; //this is in cents to avoid floating point errors
+    public static int Money = 750; //this is in cents to avoid floating point errors
 	public static float Volume = 0; //our game has no sound lol
 	public static string CurrentCity = "Libertyville";
 	public static GameState gameState = GameState.MainMenu;
@@ -30,7 +31,15 @@ public static class Globals {
 	public static bool HadFirstTomConversation = false;
 	public static bool HadSecondTomConversation = false;
 	public static bool HadFirstDickConversation = false;
+    public static bool HadFirstGangConversation = false;
+    public static bool HadTomBreadConversation = false;
 	public static bool dickfriend = false;
+    public static bool KnowsAboutGang = false;
+    public static bool InGang = false;
+    public static bool ReportsToPoliceWithTom = false;
+    public static bool TomWillFindAlcoholDealer = false;
+    public static bool TomCheckedForAlcoholDealer = false;
+    public static bool TomToldAboutAlcoholDealer = false;
     public static int AxeType = 5;
 
     public static string FormatMoney() {

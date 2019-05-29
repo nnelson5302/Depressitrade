@@ -14,6 +14,7 @@ public abstract class ConversationBase
     public GameObject Choice1;
     public GameObject Choice2;
     public GameObject ContinueButton;
+    public GameObject NPC;
     public Button Button1;
     public Button Button2;
     public Button ContButton;
@@ -38,6 +39,7 @@ public abstract class ConversationBase
 		GameObject _Choice1,
 		GameObject _Choice2,
 		GameObject _ContinueButton,
+        GameObject _NPC,
         GameObject _MoneyPanel,
         Text _MoneyText
 	)
@@ -51,6 +53,7 @@ public abstract class ConversationBase
 		Button1 = Choice1.GetComponent<Button>();
 		Button2 = Choice2.GetComponent<Button>();
 		ContButton = ContinueButton.GetComponent<Button>();
+        NPC = _NPC;
         MoneyPanel = _MoneyPanel;
         MoneyText = _MoneyText;
 		ContinueText = ContinueButton.GetComponent<Transform>().GetChild(0).GetComponent<Text>();

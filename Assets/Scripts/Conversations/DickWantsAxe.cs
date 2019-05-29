@@ -8,24 +8,27 @@ using UnityEngine.UI;
 public class DickWantsAxe : ConversationBase {
 	
 	public DickWantsAxe(
-		Text _NPCText,
-		Text _PlayerText1,
-		Text _PlayerText2,
-		GameObject _Choice1,
-		GameObject _Choice2,
-		GameObject _ContinueButton,
+        Text _NPCText,
+        Text _PlayerText1,
+        Text _PlayerText2,
+        GameObject _Choice1,
+        GameObject _Choice2,
+        GameObject _ContinueButton,
+        GameObject _NPC,
         GameObject _MoneyPanel,
         Text _MoneyText
-	) : base(
+    ) : base(
         _NPCText,
         _PlayerText1,
         _PlayerText2,
         _Choice1,
         _Choice2,
         _ContinueButton,
+        _NPC,
         _MoneyPanel,
         _MoneyText
-    ) {}
+    )
+    { }
 
     //Make different parts of the story in voids
 

@@ -7,24 +7,27 @@ using UnityEngine.SceneManagement;
 public class TomConvo2 : ConversationBase
 {
     public TomConvo2(
-		Text _NPCText,
-		Text _PlayerText1,
-		Text _PlayerText2,
-		GameObject _Choice1,
-		GameObject _Choice2,
-		GameObject _ContinueButton,
+        Text _NPCText,
+        Text _PlayerText1,
+        Text _PlayerText2,
+        GameObject _Choice1,
+        GameObject _Choice2,
+        GameObject _ContinueButton,
+        GameObject _NPC,
         GameObject _MoneyPanel,
         Text _MoneyText
-	) : base(
+    ) : base(
         _NPCText,
         _PlayerText1,
         _PlayerText2,
         _Choice1,
         _Choice2,
         _ContinueButton,
+        _NPC,
         _MoneyPanel,
         _MoneyText
-    ) {}
+    )
+    { }
 
     public override void Part1()
     {
@@ -50,7 +53,7 @@ public class TomConvo2 : ConversationBase
     void Part2a()
     {
         if(Globals.wood >= 20){
-            NPCText.text = "Great! I owe you $3.50 then! Thank you! I'll inform you if I require your assistance in the future.";
+            NPCText.text = "Great! I owe you $6.00 then! Thank you! I'll inform you if I require your assistance in the future.";
             cont = 1;
             Reading();
         } else {
@@ -69,7 +72,7 @@ public class TomConvo2 : ConversationBase
 
     void Part3()
     {
-        GiveMoney(350);
+        GiveMoney(600);
 		Globals.wood -= 20;
         cont = 3;
         Reading();
