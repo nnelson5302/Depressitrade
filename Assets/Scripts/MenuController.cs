@@ -44,7 +44,7 @@ public class MenuController : MonoBehaviour {
 			SwitchToMenu(MainMenu);
 		}
 		if (!Globals.HadFirstTomConversation){
-			MapButton.SetActive(false);
+			//MapButton.SetActive(false);
 		}
 	}
 	
