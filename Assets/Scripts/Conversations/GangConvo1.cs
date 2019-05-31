@@ -141,7 +141,7 @@ public class GangConvo1 : ConversationBase
     {
         NPCText.text = "Okay. Where do they live?";
         PlayerText1.text = "Excuse me?";
-        PlayerText2.text = "1508 West Pine Street in Holiday Hills.";
+        PlayerText2.text = "1508 West Pine Street in Garden Prairie.";
         Choosing(Part6a, Part6e);
     }
 
@@ -163,7 +163,7 @@ public class GangConvo1 : ConversationBase
         {
             NPCText.text = "If I'm going to trust you, you need to trust me.";
         }
-        PlayerText1.text = "Fine. 1508 West Pine Street in Holiday Hills.";
+        PlayerText1.text = "Fine. 1508 West Pine Street in Garden Prairie.";
         PlayerText2.text = "I don't really want to trust you.";
         Choosing(Part6e, Part6d);
     }
@@ -178,7 +178,7 @@ public class GangConvo1 : ConversationBase
         {
             NPCText.text = "I have to make sure that I can trust you.";
         }
-        PlayerText1.text = "Alright. They live at 1508 West Pine Street in Holiday Hills.";
+        PlayerText1.text = "Alright. They live at 1508 West Pine Street in Garden Prairie.";
         PlayerText2.text = "I don't want to tell you where my family lives.";
         Choosing(Part6e, Part6d);
     }
@@ -187,7 +187,7 @@ public class GangConvo1 : ConversationBase
     {
         NPCText.text = "You have to trust me if you want the money. So what is it? Do you want it or not?";
         PlayerText1.text = "Not if it means telling you where my family lives! I'll be fine on my own.";
-        PlayerText2.text = "Yes. 1508 West Pine Street in Holiday Hills.";
+        PlayerText2.text = "Yes. 1508 West Pine Street in Garden Prairie.";
         Choosing(Part3a, Part6e);
     }
 

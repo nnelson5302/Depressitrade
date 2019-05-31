@@ -7,13 +7,22 @@ public class WeNeedThreeFiddy : MonoBehaviour
 {
     // Start is called before the first frame update
     public Text letterText;
-    int letternumber = 1;
+    int letternumber = 0;
     public Font Alice;
     public Font Spouse;
 
     void Start()
     {
-        if (letternumber == 1)
+        if (letternumber == 0)
+        {
+            letterText.text = "Dear, " + Globals.PlayerName + ",\nThank you for doing this for us. The depression hit us hard" +
+            "but I'm sure you'll help us get through it. Tom is an old friend of mine and he runs a shop in Libertyville." +
+            "He said he can help get you some work. Hopefully one of us can find a more stable job soon but until then, this" +
+            "will have to do. It's going to be tough and I will miss you dearly, but we'll be able to get through it.\nLove," +
+            Globals.spouseName;
+            letternumber++;
+        }
+        else if (letternumber == 1)
         {
             letterText.font = Alice;
             letterText.text = "Hi " + Globals.parentType + "!\n Im almost five yers old! " + Globals.spouseType +
@@ -28,7 +37,7 @@ public class WeNeedThreeFiddy : MonoBehaviour
             letterText.font = Spouse;
             letterText.text = "Dear " + Globals.PlayerName + ",\nThank you for all the work you've been doing and I hope you're doing well.\n" +
             "I miss you and I truly wish that you were home with us. The kids are okay and it's hard to take care " +
-            "of them by myself but I'm managing. Depsite the money you sent us, we're running out of food. I know it's " +
+            "of them by myself but I'm managing. Despite the money you sent us, we're running out of food. I know it's " +
             "tough to get good work but we need you to do whatever you possibly can to make money for us or I fear " +
             "we won't survive. I love you and if anybody can do this, it's you. When you lost your job, that was the "  +
             "biggest mistake the bank could've made, but your banking skills must be very useful in trading or whatever " +
