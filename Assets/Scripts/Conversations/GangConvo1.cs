@@ -13,6 +13,7 @@ public class GangConvo1 : ConversationBase
         GameObject _Choice2,
         GameObject _ContinueButton,
         GameObject _NPC,
+        GameObject _TextBox,
         GameObject _MoneyPanel,
         Text _MoneyText
     ) : base(
@@ -23,6 +24,7 @@ public class GangConvo1 : ConversationBase
         _Choice2,
         _ContinueButton,
         _NPC,
+        _TextBox,
         _MoneyPanel,
         _MoneyText
     )

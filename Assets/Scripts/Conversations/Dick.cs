@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TomConvo3 : ConversationBase
+public class Dick : ConversationBase
 {
-    public TomConvo3(
+    public Dick(
         Text _NPCText,
         Text _PlayerText1,
         Text _PlayerText2,
@@ -29,9 +29,10 @@ public class TomConvo3 : ConversationBase
         _MoneyText
     )
     { }
-	
-	public override void Part1(){
-        NPCText.text = "I don't have anything else for you right now. Maybe go talk to Dick?";
+
+    public override void Part1()
+    {
+        NPCText.text = "I don't have anything else for you right now. Maybe go talk to Tom?";
         Reading(EndConversation);
     }
 }
