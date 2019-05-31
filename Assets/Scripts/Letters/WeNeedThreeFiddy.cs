@@ -10,9 +10,13 @@ public class WeNeedThreeFiddy : MonoBehaviour
     int letternumber = 0;
     public Font Alice;
     public Font Spouse;
+    public GameObject Envelope;
+    public GameObject LetterStuff;
 
     void Start()
     {
+        Envelope.SetActive(false);
+        LetterStuff.SetActive(true);
         if (letternumber == 0)
         {
             letterText.text = "Dear, " + Globals.PlayerName + ",\nThank you for doing this for us. The depression hit us hard" +
@@ -48,6 +52,15 @@ public class WeNeedThreeFiddy : MonoBehaviour
             "dearly and I hope this is all over soon and one of us can find a stable job.\n\nLove, " +
             Globals.spouseName;
         }
+    }
+
+    void YouveGotMail() {
+        Envelope.SetActive(true);
+    }
+
+    void DoneButton()
+    {
+        LetterStuff.SetActive(false);
     }
 
 }
