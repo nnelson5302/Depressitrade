@@ -13,6 +13,7 @@ public class ConversationController : MonoBehaviour
     public GameObject Choice2;
     public GameObject ContinueButton;
     public GameObject NPC;
+    public GameObject TextBox;
     public GameObject MoneyPanel;
     public Text MoneyText;
 
@@ -25,7 +26,7 @@ public class ConversationController : MonoBehaviour
             case "Tom":
                 if(!Globals.HadFirstTomConversation){
                     //conversationType = typeof(TomConvo1);
-                    conversationType = typeof(TomConvo4);
+                    conversationType = typeof(TomConvo1);
                 }
                 else {
                     conversationType = typeof(TomConvo2);
@@ -46,7 +47,7 @@ public class ConversationController : MonoBehaviour
                 }
 				break;
         }
-        ConversationBase conversation = Activator.CreateInstance(conversationType, NPCText, PlayerText1, PlayerText2, Choice1, Choice2, ContinueButton, NPC, MoneyPanel, MoneyText) as ConversationBase;
+        ConversationBase conversation = Activator.CreateInstance(conversationType, NPCText, PlayerText1, PlayerText2, Choice1, Choice2, ContinueButton, NPC, TextBox, MoneyPanel, MoneyText) as ConversationBase;
         conversation.Part1();
     }
 }

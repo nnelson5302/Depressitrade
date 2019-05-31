@@ -15,9 +15,10 @@ public class DickConvo1 : ConversationBase
         GameObject _Choice2,
         GameObject _ContinueButton,
         GameObject _NPC,
+        GameObject _TextBox,
         GameObject _MoneyPanel,
         Text _MoneyText
-	) : base(
+    ) : base(
         _NPCText,
         _PlayerText1,
         _PlayerText2,
@@ -25,9 +26,11 @@ public class DickConvo1 : ConversationBase
         _Choice2,
         _ContinueButton,
         _NPC,
+        _TextBox,
         _MoneyPanel,
         _MoneyText
-    ) {}
+    )
+    { }
 
     public override void Part1()
     {

@@ -8,16 +8,17 @@ public class ExampleConversation : ConversationBase
     //You will unfortunately have to copy this constructor into every conversation.
     //Make sure to change ExampleConversation to the name of the conversation
     public ExampleConversation(
-		Text _NPCText,
-		Text _PlayerText1,
-		Text _PlayerText2,
-		GameObject _Choice1,
-		GameObject _Choice2,
-		GameObject _ContinueButton,
+        Text _NPCText,
+        Text _PlayerText1,
+        Text _PlayerText2,
+        GameObject _Choice1,
+        GameObject _Choice2,
+        GameObject _ContinueButton,
         GameObject _NPC,
+        GameObject _TextBox,
         GameObject _MoneyPanel,
         Text _MoneyText
-	) : base(
+    ) : base(
         _NPCText,
         _PlayerText1,
         _PlayerText2,
@@ -25,9 +26,11 @@ public class ExampleConversation : ConversationBase
         _Choice2,
         _ContinueButton,
         _NPC,
+        _TextBox,
         _MoneyPanel,
         _MoneyText
-    ) {}
+    )
+    { }
 
     //Make sure to change TomText or DickText to NPCText!
 

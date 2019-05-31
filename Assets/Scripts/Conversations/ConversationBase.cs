@@ -40,6 +40,7 @@ public abstract class ConversationBase
 		GameObject _Choice2,
 		GameObject _ContinueButton,
         GameObject _NPC,
+        GameObject _TextBox,
         GameObject _MoneyPanel,
         Text _MoneyText
 	)
