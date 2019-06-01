@@ -20,4 +20,3 @@ public class PlayerController : MonoBehaviour
         transform.GetComponent<Rigidbody2D>().velocity = movement; //assigns the input variable to the gameObject as a velocity
     }
 }
-
