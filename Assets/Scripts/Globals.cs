@@ -14,7 +14,7 @@ public static class Globals {
     public static string spousePronoun = "generic_pronoun277.0.2";
     public static int Money = 750; //this is in cents to avoid floating point errors
 	public static float Volume = 0; //our game has no sound lol
-	public static string CurrentCity = "Libertyville";
+	public static string CurrentCity = "2D Libertyville";
 	public static GameState gameState = GameState.MainMenu;
 	public static int Week = 1;
 	public static string ConversationPerson = "Tom"; //set before changing to conversation scene
