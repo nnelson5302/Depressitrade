@@ -28,8 +28,16 @@ public class ConversationController : MonoBehaviour
                     //conversationType = typeof(TomConvo1);
                     conversationType = typeof(TomConvo1);
                 }
-                else {
+                else if (!Globals.HadSecondTomConversation)
+                {
                     conversationType = typeof(TomConvo2);
+                }
+                else if (!Globals.HadThirdTomConversation && Globals.HadFirstGangConversation)
+                {
+                    conversationType = typeof(TomConvo4);
+                }
+                else {
+                    conversationType = typeof(TomConvo3);
                 }
                 break;
 			case "Dick":
@@ -37,15 +45,39 @@ public class ConversationController : MonoBehaviour
                 {
                     conversationType = typeof(DickConvo1);
                 }
+                else if (!Globals.HadSecondDickConversation)
+                {
+                    conversationType = typeof(DickWantsAxe);
+                }
                 else if (Globals.axe>=1)
                 {
                     conversationType = typeof(GiveAxe);
                 }
                 else
                 {
-                    conversationType = typeof(DickWantsAxe);
+                    conversationType = typeof(Dick);
                 }
 				break;
+            case "Dorothy":
+                if (!Globals.GotAxe)
+                {
+                    conversationType = typeof(GetAxe);
+                }
+                else
+                {
+                    conversationType = typeof(Dorothy);
+                }
+                break;
+            case "El Pacone":
+                if (!Globals.HadFirstGangConversation)
+                {
+                    conversationType = typeof(GangConvo1);
+                }
+                else
+                {
+                    conversationType = typeof(GangBlurb1);
+                }
+                break;
         }
         ConversationBase conversation = Activator.CreateInstance(conversationType, NPCText, PlayerText1, PlayerText2, Choice1, Choice2, ContinueButton, NPC, TextBox, MoneyPanel, MoneyText) as ConversationBase;
         conversation.Part1();

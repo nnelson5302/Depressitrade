@@ -30,9 +30,12 @@ public static class Globals {
 	//Story
 	public static bool HadFirstTomConversation = false;
 	public static bool HadSecondTomConversation = false;
-	public static bool HadFirstDickConversation = false;
+    public static bool HadThirdTomConversation = false;
+    public static bool HadFirstDickConversation = false;
+    public static bool HadSecondDickConversation = false;
     public static bool HadFirstGangConversation = false;
     public static bool HadTomBreadConversation = false;
+    public static bool GotAxe = false;
 	public static bool dickfriend = false;
     public static bool KnowsAboutGang = false;
     public static bool InGang = false;

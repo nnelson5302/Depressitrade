@@ -38,11 +38,20 @@ public class DickWantsAxe : ConversationBase {
     //It's activated when you enter the conversation
     public override void Part1()
     {
-        NPCText.text = "Hey, " + playerName + ". What do you want?";
-        PlayerText1.text = "I was wondering if you had any work for me.";
-        PlayerText2.text = "I just came to talk to you. I need some friends around here.";
-        choice = 1;
-        Choosing();
+        if (!Globals.HadSecondTomConversation)
+        {
+            NPCText.text = "Go give Tom the wood I gave you. What are you waiting for?";
+            Reading(EndConversation);
+        }
+        else
+        {
+            Globals.HadSecondDickConversation = true;
+            NPCText.text = "Hey, " + playerName + ". What do you want?";
+            PlayerText1.text = "I was wondering if you had any work for me.";
+            PlayerText2.text = "I just came to talk to you. I need some friends around here.";
+            choice = 1;
+            Choosing();
+        }
     }
 
     void Part2a()

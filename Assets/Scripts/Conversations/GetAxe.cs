@@ -176,6 +176,8 @@ public class GetAxe : ConversationBase
     {
         NPCText.text = "Alright, I have five options for axes.";
         Reading(Part4);
+        Globals.axe++;
+        Globals.GotAxe = true;
     }
 
     void Part4()
