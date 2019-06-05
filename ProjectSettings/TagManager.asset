@@ -47,3 +47,6 @@ TagManager:
   - name: Collidables
     uniqueID: 2459704143
     locked: 0
+  - name: TOM
+    uniqueID: 1333686579
+    locked: 0
