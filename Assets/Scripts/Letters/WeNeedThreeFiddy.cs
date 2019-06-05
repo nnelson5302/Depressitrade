@@ -12,19 +12,22 @@ public class WeNeedThreeFiddy : MonoBehaviour
     public Font Spouse;
     public GameObject Envelope;
     public GameObject LetterStuff;
+    public GameObject UIPanel;
 
-    void Start()
+    public void ShowLetter()
     {
+        UIPanel.SetActive(false);
         Envelope.SetActive(false);
         LetterStuff.SetActive(true);
+        Debug.Log(letternumber);
         if (letternumber == 0)
         {
-            letterText.text = "Dear, " + Globals.PlayerName + ",\nThank you for doing this for us. The depression hit us hard" +
-            "but I'm sure you'll help us get through it. Tom is an old friend of mine and he runs a shop in Libertyville." +
-            "He said he can help get you some work. Hopefully one of us can find a more stable job soon but until then, this" +
-            "will have to do. It's going to be tough and I will miss you dearly, but we'll be able to get through it.\nLove," +
+            letterText.font = Spouse;
+            letterText.text = "Dear " + Globals.PlayerName + ",\nThank you for doing this for us. The depression hit us hard " +
+            "but I'm sure you'll help us get through it. Tom is an old friend of mine and he runs a shop in Libertyville. " +
+            "He said he can help get you some work. Hopefully one of us can find a more stable job soon but until then, this " +
+            "will have to do. It's going to be tough and I will miss you dearly, but we'll be able to get through it.\nLove, " +
             Globals.spouseName;
-            letternumber++;
         }
         else if (letternumber == 1)
         {
@@ -34,7 +37,6 @@ public class WeNeedThreeFiddy : MonoBehaviour
                 " Im really hungrie. We only eat potatos and " + Globals.spouseType + " says were running out of those. " +
                 "We need monie. " + Globals.spouseType + " told me to ask you for fiften dolers. Can you do that " +
                 Globals.parentType + "? If you dont I dont no what well do. \n \n  Love, Alice";
-            letternumber++;
         }
         else if (letternumber == 2)
         {
@@ -54,13 +56,22 @@ public class WeNeedThreeFiddy : MonoBehaviour
         }
     }
 
-    void YouveGotMail() {
-        Envelope.SetActive(true);
+    void Update() {
+        if (Globals.LetterTime)
+        {
+            Envelope.SetActive(true);
+            LetterStuff.SetActive(false);
+            Globals.FreezePlayerPosition = true;
+            Globals.LetterTime = false;
+        }
     }
 
-    void DoneButton()
+    public void DoneButton()
     {
         LetterStuff.SetActive(false);
+        UIPanel.SetActive(true);
+        Globals.FreezePlayerPosition = false;
+        letternumber++;
     }
 
 }

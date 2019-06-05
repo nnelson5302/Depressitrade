@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class TomConvo1 : ConversationBase {
-    
+    public GameObject mapButton;
+
     public TomConvo1(
         Text _NPCText,
         Text _PlayerText1,
@@ -123,15 +125,16 @@ public class TomConvo1 : ConversationBase {
 		ContinueText.text = "Where can I get wood?";
         Reading(Part6);
     }
-	
-	void Part6()
+
+    void Part6()
 	{
 		NPCText.text = "You can buy some from my friend Dick, in Potato Hill. Use your map to get there.";
-		//ContinueText.text = "Continue";
+        //ContinueText.text = "Continue";
+        Globals.MapActive = true;
 		cont = 4;
 		Reading();
 	}
-    
+
     public override void ChooseOption1()
     {
         NotChoosing();

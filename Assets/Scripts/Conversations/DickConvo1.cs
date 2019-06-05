@@ -80,19 +80,17 @@ public class DickConvo1 : ConversationBase
     {
         NPCText.text = "Great! That will be three dollars.";
         PlayerText1.text = "No way! You won't be able to scam me you Twit!!";
-        PlayerText2.text = "Three dollars? Please, sir. Tom's only paying me $5.00!";
-        choice = 4;
-        Choosing();
+        PlayerText2.text = "Three dollars? Please, sir. Tom's only paying me $6.00!";
+        Choosing(Part5b, Part5a);
     }
 
     void Part4b()
     {
         DickSize(35);
         NPCText.text = "Er... okay then. That will be three dollars.";
-        PlayerText1.text = "Three dollars? Please, sir. Tom's only paying me $5.00!";
+        PlayerText1.text = "Three dollars? Please, sir. Tom's only paying me $6.00!";
         PlayerText2.text = "No way! You won't be able to scam me you Twit!!";
-        choice = 4;
-        Choosing();
+        Choosing(Part5a, Part5b);
     }
 
     void Part5a()

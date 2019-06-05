@@ -169,6 +169,7 @@ public abstract class ConversationBase
 	public void EndConversation()
 	{
 		SceneManager.LoadScene(Globals.CurrentCity);
+        Globals.leftConversation = true;
 	}
 
     public void GiveMoney(int amount) {

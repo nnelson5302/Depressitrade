@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour {
 
 	public GameObject FullPanel;
+    public GameObject LetterPanel;
 	public GameObject MainMenu;
 	public GameObject SettingsMenu;
 	public GameObject NameChooser;
@@ -32,8 +33,10 @@ public class MenuController : MonoBehaviour {
 	
 	public void ChooseName(string newname) {
 		Globals.PlayerName = newname;
+        Globals.SetVariables();
         CloseMenus();
 		Globals.gameState = GameState.World;
+        Globals.LetterTime = true;
 	}
 	
 	// Use this for initialization
@@ -43,9 +46,18 @@ public class MenuController : MonoBehaviour {
 		} else {
 			SwitchToMenu(MainMenu);
 		}
+        Debug.Log(Globals.LetterTime);
+        if (!Globals.LetterTime)
+        {
+            LetterPanel.SetActive(false);
+        }
 		if (!Globals.HadFirstTomConversation){
-			//MapButton.SetActive(false);
+			MapButton.SetActive(false);
 		}
+        else
+        {
+            MapButton.SetActive(true);
+        }
 	}
 	
 	// Update is called once per frame
@@ -156,4 +168,8 @@ public class MenuController : MonoBehaviour {
 		Globals.CurrentCity = SceneName;
 	}
 	
+    public void ActivateMap()
+    {
+        MapButton.SetActive(true);
+    }
 }

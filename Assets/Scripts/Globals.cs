@@ -21,7 +21,8 @@ public static class Globals {
 	public static string GameOverReason = "You died";
 	
 	public static bool GameStarted = false;//set to true after player goes through the main menu
-	
+    public static bool LetterTime = true;
+    public static bool FreezePlayerPosition = true;
 	//Resources
 	public static int wood = 0;
     public static int axe = 0;
@@ -43,7 +44,13 @@ public static class Globals {
     public static bool TomWillFindAlcoholDealer = false;
     public static bool TomCheckedForAlcoholDealer = false;
     public static bool TomToldAboutAlcoholDealer = false;
+    public static bool leftConversation = false;
     public static int AxeType = 5;
+
+    public static bool MapActive = false;
+
+    public static float PlayerPositionX = 0;
+    public static float PlayerPositionY = 0;
 
     public static string FormatMoney() {
 		string str = Money.ToString();
@@ -73,4 +80,23 @@ public static class Globals {
 		GameOverReason = reason;
 		SceneManager.LoadScene("Game Over");
 	}
+
+    public static void SetVariables()
+    {
+        if (PlayerName == "Walter")
+        {
+            parentType = "daddy";
+            spouseName = "Mildred";
+            spouseType = "mommy";
+            spousePronoun = "she";
+        }
+        
+        else if (PlayerName == "Mildred")
+        {
+            parentType = "mommy";
+            spouseName = "Walter";
+            spouseType = "daddy";
+            spousePronoun = "he";
+        }
+    }
 }
