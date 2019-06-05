@@ -37,6 +37,17 @@ public class CityPopup : MonoBehaviour {
 	public void Travel() {
 		Globals.Week += 1;
 		SceneManager.LoadScene(SceneName);
+        Globals.ChangeMusic = true;
+        if (SceneName == "Libertyville")
+        {
+            Globals.MusicType = 1;
+            Debug.Log("Going to Libertyville");
+        }
+        else if (SceneName == "Potato Hill")
+        {
+            Globals.MusicType = 2;
+            Debug.Log("Going to Potato Hill");
+        }
 		Globals.CurrentCity = SceneName;
 	}
 	

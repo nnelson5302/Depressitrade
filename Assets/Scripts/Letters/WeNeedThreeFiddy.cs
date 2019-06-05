@@ -16,12 +16,16 @@ public class WeNeedThreeFiddy : MonoBehaviour
 
     public void ShowLetter()
     {
+        Debug.Log("I went to the right place");
         UIPanel.SetActive(false);
+        Debug.Log("I set UI panel false");
         Envelope.SetActive(false);
+        Debug.Log("I made envelope inactive");
         LetterStuff.SetActive(true);
         Debug.Log(letternumber);
         if (letternumber == 0)
         {
+            Debug.Log("In the if statement");
             letterText.font = Spouse;
             letterText.text = "Dear " + Globals.PlayerName + ",\nThank you for doing this for us. The depression hit us hard " +
             "but I'm sure you'll help us get through it. Tom is an old friend of mine and he runs a shop in Libertyville. " +
@@ -59,6 +63,7 @@ public class WeNeedThreeFiddy : MonoBehaviour
     void Update() {
         if (Globals.LetterTime)
         {
+            Debug.Log("Time for a letter");
             Envelope.SetActive(true);
             LetterStuff.SetActive(false);
             Globals.FreezePlayerPosition = true;
@@ -68,6 +73,11 @@ public class WeNeedThreeFiddy : MonoBehaviour
 
     public void DoneButton()
     {
+        Debug.Log("I'm done");
+        Globals.MusicType = 1;
+        Debug.Log(Globals.MusicType);
+        Globals.ChangeMusic = true;
+        Debug.Log(Globals.ChangeMusic);
         LetterStuff.SetActive(false);
         UIPanel.SetActive(true);
         Globals.FreezePlayerPosition = false;

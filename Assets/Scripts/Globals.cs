@@ -7,6 +7,7 @@ public enum GameState {MainMenu, Paused, World, Map};
 
 //just for having static variables, don't instantiate this class
 public static class Globals {
+    public static bool MusicCreated = false;
 	public static string PlayerName = "Walter";
     public static string parentType = "daddy";
     public static string spouseName = "generic_name_277.0.2";
@@ -14,7 +15,7 @@ public static class Globals {
     public static string spousePronoun = "generic_pronoun277.0.2";
     public static int Money = 750; //this is in cents to avoid floating point errors
 	public static float Volume = 0; //our game has no sound lol
-	public static string CurrentCity = "2D Libertyville";
+	public static string CurrentCity = "Libertyville";
 	public static GameState gameState = GameState.MainMenu;
 	public static int Week = 1;
 	public static string ConversationPerson = "Tom"; //set before changing to conversation scene
@@ -48,7 +49,8 @@ public static class Globals {
     public static int AxeType = 5;
 
     public static bool MapActive = false;
-
+    public static bool ChangeMusic = true;
+    public static int MusicType = 0;
     public static float PlayerPositionX = 0;
     public static float PlayerPositionY = 0;
 

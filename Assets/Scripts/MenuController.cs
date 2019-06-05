@@ -10,6 +10,7 @@ public class MenuController : MonoBehaviour {
     public GameObject LetterPanel;
 	public GameObject MainMenu;
 	public GameObject SettingsMenu;
+    public GameObject Credits;
 	public GameObject NameChooser;
 	public GameObject PauseMenu;
 	public GameObject GameOverScreen;
@@ -46,7 +47,6 @@ public class MenuController : MonoBehaviour {
 		} else {
 			SwitchToMenu(MainMenu);
 		}
-        Debug.Log(Globals.LetterTime);
         if (!Globals.LetterTime)
         {
             LetterPanel.SetActive(false);
@@ -164,12 +164,33 @@ public class MenuController : MonoBehaviour {
 	
 	public void Travel(string SceneName) {
 		Globals.Week += 1;
-		SceneManager.LoadScene(SceneName);
-		Globals.CurrentCity = SceneName;
+        Globals.ChangeMusic = true;
+        SceneManager.LoadScene(SceneName);
+        if (SceneName == "Libertyville")
+        {
+            Globals.MusicType = 1;
+            Debug.Log("Going to Libertyville");
+        }
+        else if (SceneName == "Potato Hill")
+        {
+            Globals.MusicType = 2;
+            Debug.Log("Going to Potato Hill");
+        }
+        Globals.CurrentCity = SceneName;
 	}
 	
     public void ActivateMap()
     {
         MapButton.SetActive(true);
+    }
+
+    public void OpenCredits()
+    {
+        Credits.SetActive(true);
+    }
+
+    public void CloseCredits()
+    {
+        Credits.SetActive(false);
     }
 }
