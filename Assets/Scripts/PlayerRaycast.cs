@@ -109,7 +109,7 @@ public class PlayerRaycast : MonoBehaviour
 
     void doorEntry()
     {
-        Debug.Log(curScene.name);
+        //Debug.Log(curScene.name);
         if (Input.GetKey(KeyCode.Q) == true && doorPanel.activeInHierarchy) {
           //  Debug.Log("oof");
             if (hitPoint.x == 46 && hitPoint.y == -30 && curScene.name == "2D libertyville")
