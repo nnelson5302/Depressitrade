@@ -16,43 +16,34 @@ public class MusicController : MonoBehaviour
         {
             Destroy(DontDestroy);
         }
+
         Globals.MusicCreated = true;
+
         DontDestroyOnLoad(DontDestroy);
+
         if (Globals.MusicType == 0)
         {
             Music1.Stop();
             Music2.Stop();
             Music3.Stop();
-            Music1.mute = true;
-            Music2.mute = true;
-            Music3.mute = true;
         }
         else if (Globals.MusicType == 1)
         {
             Music0.Stop();
             Music2.Stop();
             Music3.Stop();
-            Music0.mute = true;
-            Music2.mute = true;
-            Music3.mute = true;
         }
         else if (Globals.MusicType == 2)
         {
             Music0.Stop();
             Music1.Stop();
             Music3.Stop();
-            Music0.mute = true;
-            Music1.mute = true;
-            Music3.mute = true;
         }
         else if (Globals.MusicType == 3)
         {
             Music0.Stop();
             Music1.Stop();
             Music2.Stop();
-            Music0.mute = true;
-            Music1.mute = true;
-            Music2.mute = true;
         }
     }
     void Update()
@@ -64,11 +55,6 @@ public class MusicController : MonoBehaviour
             Music1.Stop();
             Music2.Stop();
             Music3.Stop();
-
-            Music0.mute = true;
-            Music1.mute = true;
-            Music2.mute = true;
-            Music3.mute = true;
             if (Globals.MusicType == 0)
             {
                 Debug.Log("Playing music 0");

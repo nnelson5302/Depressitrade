@@ -12,10 +12,13 @@ public class ConversationController : MonoBehaviour
     public GameObject Choice1;
     public GameObject Choice2;
     public GameObject ContinueButton;
-    public GameObject NPC;
+    public GameObject Tom;
+    public GameObject Dick;
     public GameObject TextBox;
     public GameObject MoneyPanel;
     public Text MoneyText;
+
+    private GameObject NPC;
 
     public void Start(){
         Type conversationType = null;
@@ -24,6 +27,9 @@ public class ConversationController : MonoBehaviour
                 conversationType = typeof(ExampleConversation);
                 break;
             case "Tom":
+                NPC = Tom;
+                Tom.SetActive(true);
+                Dick.SetActive(false);
                 if(!Globals.HadFirstTomConversation){
                     //conversationType = typeof(TomConvo1);
                     conversationType = typeof(TomConvo1);
@@ -41,6 +47,9 @@ public class ConversationController : MonoBehaviour
                 }
                 break;
 			case "Dick":
+                NPC = Dick;
+                Tom.SetActive(false);
+                Dick.SetActive(true);
                 if (!Globals.HadFirstDickConversation)
                 {
                     conversationType = typeof(DickConvo1);

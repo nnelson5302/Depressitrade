@@ -16,6 +16,8 @@ GameObject:
   - component: {fileID: 2488065570465043610}
   - component: {fileID: 2488065570465043589}
   - component: {fileID: 2337526227882927920}
+  - component: {fileID: 4414392692099459246}
+  - component: {fileID: 6314605809703913634}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -183,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 3
   runSpeed: 6
+  MildredAnimation: {fileID: 4414392692099459246}
 --- !u!114 &2337526227882927920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,6 +199,41 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 2488065570465043609}
+--- !u!95 &4414392692099459246
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2488065570465043612}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f681ff368eb4795418053ced71924f81, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6314605809703913634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2488065570465043612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c06e77110ffeb94cb89dfa46658c91a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PlayerSprite: {fileID: 2488065570465043614}
+  PlayerCollider: {fileID: 2488065570465043611}
+  WalterSprite: {fileID: 21300000, guid: eda85d76363757c4e8cb287f51a2cdfc, type: 3}
+  MildredSprite: {fileID: 21300000, guid: c234548d1f0fd3849b39eb0f284fd33b, type: 3}
 --- !u!1 &2488065570819984373
 GameObject:
   m_ObjectHideFlags: 0

@@ -171,7 +171,8 @@ public abstract class ConversationBase
 		SceneManager.LoadScene(Globals.CurrentCity);
         Globals.leftConversation = true;
 	}
-
+    
+    //Call to show the panel to show that the player has been paid
     public void GiveMoney(int amount) {
         if(NPCName != null){
             MoneyText.text = NPCName + " gave you " + Globals.FormatMoney(amount);
@@ -182,8 +183,9 @@ public abstract class ConversationBase
 		MoneyPanel.GetComponent<Image>().color = Color.green;
         Globals.Money += amount;
     }
-	
-	public void SpendMoney(int amount) {
+
+    //Call to show the panel to show that the player has payed somebody
+    public void SpendMoney(int amount) {
 		MoneyText.text = "You gave " + Globals.FormatMoney(amount) + " to " + NPCName;
 		MoneyPanel.SetActive(true);
 		MoneyPanel.GetComponent<Image>().color = new Color(1f, 0.2f, 0.2f, 1f);

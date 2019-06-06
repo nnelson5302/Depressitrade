@@ -30,7 +30,7 @@ public class WeNeedThreeFiddy : MonoBehaviour
             letterText.text = "Dear " + Globals.PlayerName + ",\nThank you for doing this for us. The depression hit us hard " +
             "but I'm sure you'll help us get through it. Tom is an old friend of mine and he runs a shop in Libertyville. " +
             "He said he can help get you some work. Hopefully one of us can find a more stable job soon but until then, this " +
-            "will have to do. It's going to be tough and I will miss you dearly, but we'll be able to get through it.\nLove, " +
+            "will have to do. It's going to be tough and I will miss you dearly, but we'll be able to survive.\nLove, " +
             Globals.spouseName;
         }
         else if (letternumber == 1)

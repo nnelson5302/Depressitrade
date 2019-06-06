@@ -11,6 +11,7 @@ public class MenuController : MonoBehaviour {
 	public GameObject MainMenu;
 	public GameObject SettingsMenu;
     public GameObject Credits;
+    public GameObject Instructions;
 	public GameObject NameChooser;
 	public GameObject PauseMenu;
 	public GameObject GameOverScreen;
@@ -66,7 +67,7 @@ public class MenuController : MonoBehaviour {
 			TogglePause();
 		}
 		MoneyText.text = Globals.FormatMoney();
-		WeekText.text = "Week " + Globals.Week;
+		//WeekText.text = "Week " + Globals.Week;
 		UpdateInventoryText();
 		CityNameObj.text = Globals.CurrentCity;
 	}
@@ -192,5 +193,15 @@ public class MenuController : MonoBehaviour {
     public void CloseCredits()
     {
         Credits.SetActive(false);
+    }
+
+    public void OpenInstructions()
+    {
+        Instructions.SetActive(true);
+    }
+
+    public void CloseInstructions()
+    {
+        Instructions.SetActive(false);
     }
 }
